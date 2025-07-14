@@ -1,1 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*custom CSS*/
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@font-face { font-family: 'nb_internationalregular'; src: url('../assets/fonts/nb_international_regular-webfont.woff2') format('woff2'), url('../assets/fonts/nb_international_regular-webfont.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face {
+    font-family: 'NBInternationalPronormal400100';
+    src: url('../assets/fonts/NBInternationalPronormal400100.eot');
+    src: url('../assets/fonts/NBInternationalPronormal400100.eot') format('embedded-opentype'),
+         url('../assets/fonts/NBInternationalPronormal400100.woff2') format('woff2'),
+         url('../assets/fonts/NBInternationalPronormal400100.woff') format('woff'),
+         url('../assets/fonts/NBInternationalPronormal400100.ttf') format('truetype'),
+         url('../assets/fonts/NBInternationalPronormal400100.svg#NBInternationalPronormal400100') format('svg');
+}
+
+
+/*Font defined*/ 
+body{ font-family: 'NBInternationalPronormal400100', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+h1,h2,h3,h4,h5,h6{ font-family: 'NBInternationalPronormal400100', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+
+
+
+.font-mono{font-family: "Space Mono", monospace;}
+.nav{font-family: "Space Mono", monospace;}
+.customtxt{letter-spacing: 4%;font-family: "Space Mono", monospace;} 
+.overlayblur{font-family: "Space Mono", monospace;}
+
+/*color defined*/ 
+.bg-gray-900 {background-color: #16232A !important;}
+.lightgrey{background: #E4EEF0;}
+.bg-orange{background: #FE4819;}
+.hover\:bg-orange:hover{opacity: 0.9;}
+
+.text-gray-500{ color:#E4EEF0}
+.text-orange{color: #FE4819;}
+.text-dark-grey{color:#16232A;}
+
+.circlebx{width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right:10px;}
+.border-orange{border-color: #FE4819;}  
+
+
+
+
+
+/*header css*/ 
+header{position:relative; z-index:10;} 
+.header-top{background:#FFF9F1; letter-spacing:-1%; font-size:12px;}
+.header-top .location-ico{width:12px; height:13px;}
+#mainNav.nav-scrolled {background: #16232A; position: fixed; top: 0;}
+
+
+/*banner css*/ 
+.hero-banner{background-image:url(../assets/images/hero-banner-min.png); background-size: cover; background-position: center top; border-bottom-left-radius: 30px; border-bottom-right-radius:30px; background-attachment: fixed;}
+.hero-banner.about{background-image:url(../assets/images/abou-us-bg.jpg);}
+.hero-banner::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(180deg, transparent 0 10%, #0000005e 70% 100%); border-radius: 0px 0px 30px 30px;}
+#progress-line { left: 39px; top:10px; }
+
+
+/*who we are css*/ 
+.bg-wrapimg{background-image:url(../assets/images/house.jpg); background-size: cover; background-position: center center; position: relative; background-attachment: fixed; }
+.bg-wrapimg::before{content: ''; position: absolute; top: 0;	left: 0; width: 100%; height: 100%;background-image: linear-gradient(-90deg, transparent 0 44%, #0000005e 70% 100%);}
+.icon-img{width: 62px;}
+/*how it work css*/ 
+.timeline::before { content: "";  border-left: 3px solid #E4EEF0;  position: absolute;  left: 12px;  height: 77%;  top: 10px;}
+.owl-carousel.owl-drag .owl-item.current .lightgrey{background: rgba(244,133,33,0.4);}
+
+/*pricing css*/
+.bg-pricingimg{background-image:url(../assets/images/pricing-sale.jpg); background-size: cover; background-position: center center;  position: relative; background-attachment: fixed;}
+.bg-pricingimg::before{	content: ''; position: absolute;	top: 0;	left: 0;	width: 100%;	height: 100%;	background-image: linear-gradient(90deg, transparent 0 44%, #0000005e 70% 100%);}
+.formlayout input[type="text"],  input[type="tel"],  input[type="email"], select{ background: #fff; border: 1px solid #16232A99;  border-radius: 0;  min-height: 58px;}
+.bg-gray-900  .formlayout input[type="text"],  .bg-gray-900 input[type="tel"],  .bg-gray-900 input[type="email"], .bg-gray-900 select{
+background: transparent;  border: 1px solid rgba(255,255,255,0.6);  border-radius: 0; min-height: 58px;}
+
+
+/* footer css */    
+footer {border-top-left-radius: 30px; border-top-right-radius: 30px;}
+.hover\:text-orange:hover{ color:  #FE4819;}
+.socialicons a { background: #fff;  border-radius: 50%;  width: 30px;  height: 30px;  color: #333;  display: inline-block;  text-align: center;  line-height: 30px;  margin-right: 6px;}
+.socialicons a:hover{ background: #FE4819;  color:#fff}
+
+.owl-dot span { width: 10px; height: 10px; background: #ccc; border-radius: 999px; margin: 0 4px; display: block; transition: 0.3s; } 
+.owl-dot.active span { background: #f97316; /* orange-500 */ transform: scale(1.2); } 
+.owl-dots { position: absolute; left: 0; right: 0; margin: 0 auto; display: flex; justify-content: center; bottom: -49px; }
+
+
+/*About Us Page */
+.owl-carousel.logos .owl-item img{ width:100px;}
+.owl-carousel.logos .owl-stage{height:100px;}
+.owl-carousel.logos .owl-stage .owl-item{ height: 100px; display: flex; align-content: center; justify-content: center; align-items: center;} 
+.owl-carousel.logos .owl-item img.tesla{ width:132px;}
+.owl-carousel.logos .owl-item img.enphase{ width:183px;}
+.owl-carousel.logos .owl-item img.jinko{ width:129px;}
+.owl-carousel.logos .owl-item img.franklin{ width:244px;}
+.owl-carousel.logos .owl-item img.eg4{ width:64px;}
+.owl-carousel.logos .owl-item img.qcell{ width:121px;}
+.owl-carousel.logos .owl-item img.generac{ width:165px;}
+.owl-carousel.logos .owl-item img.sol{ width:90px; height:80px;}
+
+
+.fade-in { transition: color 1s ease; }
+.fade-in.visible { color: white; }
+
+.bg-readytoseedif{background-image:url(../assets/images/go-solar-about-us.jpg); background-size: cover; background-position: center center; position: relative; background-attachment: fixed; }
+.bg-readytoseedif::before{content: ''; position: absolute; top: 0;	left: 0; width: 100%; height: 100%;background-image: linear-gradient(-90deg, transparent 0 44%, #0000005e 70% 100%);}
+
+.bg-traditionalsolar{background-image:url(../assets/images/traditionalsolar.jpg); background-size: cover; background-position: center center; position: relative; background-attachment: fixed; }
+.bg-traditionalsolar::before{content: ''; position: absolute; top: 0;	left: 0; width: 100%; height: 100%;background-image: linear-gradient(90deg, transparent 0 34%, #0000005e 63% 100%);}
+
+
+
+/*product page css*/ 
+.product-slide1{background-image:url(../assets/images/product-slide1.jpg); background-size: cover; background-position: center top; background-attachment: fixed;}
+.product-slide1::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(180deg, transparent 0 10%, #0000005e 70% 100%); }
+
+.product-slide2{background-image:url(../assets/images/product-slide2.jpg); background-size: cover; background-position: center top;  background-attachment: fixed;}
+.product-slide2::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(180deg, transparent 0 10%, #0000005e 70% 100%); }
+
+
+.product-slide3{background-image:url(../assets/images/product-slide3.jpg); background-size: cover; background-position: center top;  background-attachment: fixed;}
+.product-slide3::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(180deg, transparent 0 10%, #0000005e 70% 100%);}
+
+
+/*how we vet css*/ 
+.vet-banner{background-image:url(../assets/images/how-we-vet-slide.jpg); background-size: cover; background-position: center top;  background-attachment: fixed; border-bottom-left-radius: 30px; border-bottom-right-radius:30px;}
+.vet-banner::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, transparent 0 10%, #0000005e 70% 100%);}
+
+
+
+.financial-slide{background-image:url(../assets/images/financial-bg.jpg); background-size: cover; background-position: center top;  background-attachment: fixed; border-bottom-left-radius: 30px; border-bottom-right-radius:30px;}
+.financial-slide::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(0deg, transparent 0 10%, #0000005e 70% 100%);}
+
+
+/*product solar page css*/ 
+.solar-slide{background-image:url(../assets/images/solar-saving-plan.jpg); background-size: cover; background-position: center top; background-attachment: fixed; border-bottom-left-radius: 30px; border-bottom-right-radius:30px;}
+.solar-slide::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(-120deg, transparent 0 10%, #0000005e 70% 100%); }
+
+
+.solar-storage-slide{background-image:url(../assets/images/solar-storage.jpg); background-size: cover; background-position: center top; background-attachment: fixed; border-bottom-left-radius: 30px; border-bottom-right-radius:30px;}
+.solar-storage-slide::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(-120deg, transparent 0 10%, #0000005e 70% 100%); }
+
+
+
+.storage-slide{background-image:url(../assets/images/battery-storage-plan.jpg); background-size: cover; background-position: center top; background-attachment: fixed; border-bottom-left-radius: 30px; border-bottom-right-radius:30px;}
+.storage-slide::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(-120deg, transparent 0 10%, #0000005e 70% 100%); }
+
+
+.bg-solarsaving{background-image:url(../assets/images/saving-energy.jpg); background-size: cover; background-position: center bottom; background-attachment: fixed; }
+.bg-solarsaving::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(-120deg, transparent 0 10%, #0000005e 70% 100%); }
+
+
+
+.bg-harness-power{background-image:url(../assets/images/harness-power.jpg); background-size: cover; background-position: center bottom; background-attachment: fixed; }
+.bg-harness-power::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(-120deg, transparent 0 10%, #0000005e 70% 100%); }
+
+
+.bg-realchanger{background-image:url(../assets/images/game-changer.jpg); background-size: cover; background-position: center top; background-attachment: fixed; }
+.bg-realchanger::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(-120deg, transparent 0 10%, #0000005e 70% 100%); }
+
+
+.list li{position: relative; padding-left: 35px; padding-bottom: 15px;}
+.list li::before{background: url(../assets/images/tick-circle.svg) top left no-repeat; position: absolute; content: ""; left: 0; width: 25px;
+  height: 25px;
+  background-size: contain;}
+
+
+
+.bg-financialbenefit{background-image:url(../assets/images/financial-benefit.jpg); background-size: cover; background-position: center top; background-attachment: fixed; }
+.bg-financialbenefit::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(-120deg, transparent 0 10%, #0000005e 70% 100%); }
+
+.anchorlink a{text-decoration: underline;} 
+
+
+
+
+.bg-termsuse{background-image:url(../assets/images/terms-use-bg.jpg); background-size: cover; background-position: center bottom; background-attachment: fixed; border-bottom-left-radius: 30px; border-bottom-right-radius:30px;}
+.bg-termsuse::before{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(-120deg, transparent 0 10%, #0000005e 70% 100%); }
+
+
+
+#menu1 a.active {
+  border-left: 3px solid #FE4819;
+  color: #000;
+}
+#menu1 a {
+  padding-left: 20px;
+  position: relative;
+  border-left: 3px solid #fff;
+  color: #171717b2;
+}
+
+.word {
+    @apply text-gray-400 transition-colors duration-700;
+  }
+  .word.active {
+    @apply text-blue-600;
+  }
+
+
+  
+.listcross li{position: relative; padding-left: 35px; padding-bottom: 5px;}
+.listcross li::before{background: url(../assets/images/cross-circle.svg) top left no-repeat; position: absolute; content: ""; left: 0; width: 25px;
+  height: 25px;
+  background-size: contain;}
+
+ .listplus li{position: relative; padding-left: 35px; padding-bottom: 5px;}
+.listplus li::before{background: url(../assets/images/tick-circle-white.svg) top left no-repeat; position: absolute; content: ""; left: 0; width: 25px;
+  height: 25px;
+  background-size: contain;}
+
+.badge {background: #FE4819;
+  left: 0;
+  right: 0;
+  top: -16px;
+  padding: 4px 15px;
+  border-radius: 20px;
+  width: max-content;
+  margin: 0 auto;}
+
+  .slidebutton button {
+  background: #CACACA33;
+  padding: 0px;
+  width: 53px;
+  height: 42px;
+  line-height: 23px;
+  border-radius: 10px;
+  color: #FE4819;
+}
+
+  .slidebutton button img{ opacity:.6}
+
+.slidebutton button:hover{ background:rgba(254,72,25,.2)}
+.slidebutton button:hover img{opacity:1;}
+.testimonialbx {   position: absolute;   bottom: 0;   width: 100%;   margin: 0 auto;   left: 0;   right: 0;   max-width: 500px;   text-align: center;   background: #2020205e; } 
 
