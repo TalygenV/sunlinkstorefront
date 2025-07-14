@@ -1,0 +1,577 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="dist/output.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+      <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="bg-white">
+        <header class="inset-x-0 top-0 z-50" x-data="{ mobileOpen: false }">
+  <!-- Top Bar -->
+  <div class="header-top hidden lg:flex flex-wrap items-center justify-between p-2 lg:px-8 text-sm text-gray-700 bg-white">
+     <div class="flex items-center space-x-2"><img src="assets/images/location.svg" class="pe-1" /> Enter your location</div>
+    <div class="flex items-center space-x-2 text-center">Join 1000+ homeowners who’ve gone solar <img src="assets/images/ht-arrow.svg" class="ps-1 mt-1" /></div>
+    <div class="flex items-center space-x-2"><img src="assets/images/call_svgrepo.com.svg" class="pe-1" /> Call us at +1 (801) 897-4270</div>
+  </div>
+
+  <!-- Main Nav -->
+  <nav id="mainNav" class="absolute w-full flex items-center justify-between p-6 lg:px-8  text-white" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="index.html" class="-m-1.5 p-1.5">
+        <img class="h-8 w-auto" src="assets/images/sunlink-logo.svg" alt="Sunlink Logo" />
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="flex lg:hidden">
+      <button @click="mobileOpen = true" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
+        <span class="sr-only">Open main menu</span>
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Nav -->
+    <div class="hidden lg:flex align-center xl:gap-x-12  lg:gap-x-2 uppercase">
+      <a href="about.html" class="text-base font-normal text-white p-2">About</a>
+      <!-- Products Dropdown -->
+      <div class="group relative pt-2">
+        <a href="products.html" class="text-base font-normal hover:text-blue-400 transition p-2">Products <i class="fas fa-chevron-down"></i></a>
+        <div class="absolute left-0 mt-2 hidden w-64 bg-white text-black rounded shadow-lg group-hover:block z-50">
+          <a href="product-solar.html" class="block px-4 py-2 hover:bg-blue-100">Solar Savings Plan</a>
+          <a href="product-solar-storage.html" class="block px-4 py-2 hover:bg-blue-100">Solar and Storage Plans</a>
+          <a href="product-storage.html" class="block px-4 py-2 hover:bg-blue-100">Storage Only Plans</a>
+        </div>
+      </div>
+      <a href="#" class="text-base font-normal text-white p-2">Installation</a>
+      <a href="financing.html" class="text-base font-normal text-white p-2">Financing</a>
+     <div class="group relative pt-2">
+        <a href="#" class="text-base font-normal hover:text-blue-400 transition p-2">Resources <i class="fas fa-chevron-down"></i></a>
+        <div class="absolute left-0 mt-2 hidden w-64 bg-white text-black rounded shadow-lg group-hover:block z-50">
+          <a href="privacy-policy.html" class="block px-4 py-2 hover:bg-blue-100">Privacy Policy</a>
+          <a href="terms-of-service.html" class="block px-4 py-2 hover:bg-blue-100">Terms of use</a>
+         
+        </div>
+      </div>
+        
+    
+      <a href="#" class="text-base font-normal text-white p-2">Contact</a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="signin.html" class="text-base font-normal text-white uppercase me-3 mt-1">Log in</a>
+      <a href="#" class="bg-orange hover:bg-orange   py-2 px-4 text-sm font-normal text-white uppercase">Try Sunlink Now</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" x-show="mobileOpen" @click="mobileOpen = false" x-transition.opacity></div>
+
+  <!-- Mobile Slide-In Menu -->
+<!-- Mobile Slide-In Menu -->
+<div 
+  class="fixed inset-y-0 right-0 z-50 w-4/5 max-w-sm overflow-y-auto bg-white p-6 transform transition-transform duration-300"
+  x-show="mobileOpen"
+  x-transition:enter="translate-x-full"
+  x-transition:enter-start="translate-x-full"
+  x-transition:enter-end="translate-x-0"
+  x-transition:leave="translate-x-0"
+  x-transition:leave-end="translate-x-full"
+  x-data="{ openProducts: false, openResources: false }"
+  style="display: none;"
+>
+  <div class="flex items-center justify-between mb-6">
+    <img src="assets/images/sunlink-logo.svg" class="h-8" alt="logo" />
+    <button @click="mobileOpen = false" class="-m-2.5 p-2.5">
+      <svg class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+
+    <nav class="space-y-4">
+      <a href="about.html" class="block text-base font-medium text-gray-900">About</a>
+      
+      <div>
+      <button @click="openProducts = !openProducts" class="flex justify-between items-center w-full text-base font-medium text-gray-900">
+        Products
+        <svg :class="{'rotate-180': openProducts}" class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div x-show="openProducts" x-collapse class="pl-4 mt-2 space-y-2">
+        <a href="product-solar.html" class="block px-4 py-2 hover:bg-blue-100">Solar Savings Plan</a>
+          <a href="product-solar-storage.html" class="block px-4 py-2 hover:bg-blue-100">Solar and Storage Plans</a>
+          <a href="product-storage.html" class="block px-4 py-2 hover:bg-blue-100">Storage Only Plans</a>
+      </div>
+    </div>
+      <a href="#" class="block text-base font-medium text-gray-900">Installation</a>
+      <a href="financing.html" class="block text-base font-medium text-gray-900">Financing</a>
+    <!-- Resources Dropdown -->
+    <div>
+      <button @click="openResources = !openResources" class="flex justify-between items-center w-full text-base font-medium text-gray-900">
+        Resources
+        <svg :class="{'rotate-180': openResources}" class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div x-show="openResources" x-collapse class="pl-4 mt-2 space-y-2">
+         <a href="privacy-policy.html" class="block px-4 py-2 hover:bg-blue-100">Privacy Policy</a>
+          <a href="terms-of-service.html" class="block px-4 py-2 hover:bg-blue-100">Terms of use</a>
+      </div>
+    </div>
+      <a href="#" class="block text-base font-medium text-gray-900">Contact</a>
+      <a href="signin.html" class="block text-base font-medium text-gray-900">Log in</a>
+      <a href="#" class="block bg-orange-500 text-white text-center py-2 mt-2 rounded font-semibold">Try Sunlink Now</a>
+    </nav>
+  </div>
+</header>
+       
+      
+
+   <section class="overflow-hidden bg-white py-32 h-100 bg-termsuse relative">
+         <div class="mx-auto w-full px-6 lg:px-8 relative py-20 sm:py-16 lg:py-16">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+               <div class="lg:pt-4 lg:pr-8">
+                  <div class="lg:max-w-lg">
+                     <h2 class="mt-2  text-7xl   font-normal tracking-tight text-pretty text-white ">Privacy Policy</h2>
+                     <p class="mt-6 text-xl text-white">Our Privacy Policy details how we handle with your info. <br> By using SunLink, you agree to these practices.</p>
+                    <p class="mt-6 text-xl text-white">Last updated: April 16, 2025</p>
+                   
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+      <section class=" pb-16 pt-16 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-4 mx-auto p-6 gap-6">
+    
+
+         
+            <!-- Left Sidebar Menu -->
+            <nav id="menu1" class="md:col-span-1 sticky top-6 space-y-4 text-[20px] ">
+               <a href="#section1" class="block px-4 py-2 active" data-section="section1">1. Information We Collect</a>
+               <a href="#section2" class="block px-4 py-2" data-section="section2">2. How We Collect Information</a>
+               <a href="#section3" class="block px-4 py-2" data-section="section3">3. Third-Party Data Sources</a>
+               <a href="#section4" class="block px-4 py-2" data-section="section4">4. Cookies and Interest-Based Advertising</a>
+
+                <a href="#section5" class="block px-4 py-2" data-section="section5">5. How We Use and Disclose the Information We Collect</a>
+               <a href="#section6" class="block px-4 py-2" data-section="section6">6. Data Security</a>
+               <a href="#section7" class="block px-4 py-2" data-section="section7">7. Children’s Privacy</a>
+               <a href="#section8" class="block px-4 py-2" data-section="section8">8. Contact Us</a>
+            </nav>
+
+            <!-- Right Content Area -->
+            <div class="md:col-span-3 space-y-8">
+               <section id="section1" class=" bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 ">Information We Collect</h2>
+                  <p class="text-gray-500 text-[20px]">We collect information that personally identifies, relates to, describes, or is capable of being associated with you (“Personal Information”), including:</p>
+                   <ul class="list-disc text-gray-500 pl-10 text-[20px] space-y-2">
+                        <li>Identifiers such as name, signature, social security number, driver’s license number, mailing address, garaging address, email addresses, phone numbers, fax numbers, and SunLink Group account credentials;</li>
+                        <li>Characteristics of protected classifications under California or federal law such as age and gender;</li>
+                        <li>Other demographic information such as any co-owners or co-tenants of your home, and what languages you speak;</li>
+                        <li>Commercial information such as payment card or bank account information, your utility company and services your utility company provides, past and present energy generation and usage (including use generated by appliances and devices), pool and utility settings, dwelling age, size and type, whether you rent or own your home, details about appliances and other energy-related equipment used in the home or building, mapping information, details about the home or building’s structure for system design, data regarding solar irradiance, product interest and purchase history, financial account status and balance, and information about solar-related equipment in your home, including make, model, serial number, and location in your home, the energy it generates (including power, voltage, current, frequency and flow rates), its settings, schedules, alerts, system installation and roof diagrams;</li>
+                        <li>Internet or other electronic network activity information such as browsing/search history, IP address, and data collected by cookies and similar technologies;</li>
+                        <li>Geolocation data such as geographic location indicators from mobile, web, and product that are approximate and/or which are not used to locate a particular individual;</li>
+                        <li>Audio, electronic, visual, thermal, olfactory, or similar information such as call recordings, chat transcripts, testimonials, photos and satellite imagery of your home or building, and pictures or videos you upload to or send through the Website or by using our Services;</li>
+                        <li>Biometric Information such as a retina or iris scan, fingerprint, voiceprint, or scan of hand or face geometry used to identify an individual. Our biometric disclosure is found here;</li>
+                        <li>Professional or employment-related information such as employer, job title, and income;</li>
+                        <li>Education information such as education level; and</li>
+                        <li>Inferences drawn from other Personal Information or data that relate to your preferences, interests, characteristics, psychological trends, predispositions, behavior, attitudes, intelligence, abilities, and aptitudes, such as credit reports or credit scores.</li>
+                    </ul>  
+                    
+                   <p class="text-gray-500 text-[20px]">Some of the Personal Information listed above may be considered Sensitive Personal Information under relevant laws. Depending on your state of residence, this may include social security number, driver’s license and other identification card information, biometric information, and your SunLink Group account credentials. Each type of Sensitive Personal Information may overlap with a category of Personal Information listed above. Additionally, some of the Personal Information listed above may be considered “personal information” as defined in Cal. Civ. Code § 1798.80(e).</p>
+
+                  <p class="text-gray-500 text-[20px]">The type of Personal Information we collect about you may vary based on how you use the Site and/or Services and your relationship with us.</p>
+
+                   <h2 class="text-2xl font-bold mb-4 ">Usage Data and Sites Activity</h2>
+                  <p class="text-gray-500 text-[20px]">We automatically collect information in connection with the actions you take on the Sites (“Usage Data”). For example, each time you use the Sites, we automatically collect the type of web browser you use, the type of device you use, your operating system and version, your IP address, the pages you view, referring and exit pages, the date and time of your visit, and the number of clicks to, from, and within the Sites, and the duration of your visits to the Sites. If the data we automatically collect is capable of being associated with you, directly or indirectly, we treat it as Personal Information under the categories of Identifiers or Internet or other electronic network information, as appropriate. If this information is not capable of being individually associated with you, we treat it as Usage Data.</p>
+
+                 <h2 class="text-2xl font-bold mb-4 "> Communication Recordings</h2>
+                  <p class="text-gray-500 text-[20px]">We may record calls and retain the content of text messages, chat transcripts, or other written/electronic communications between you and us. By communicating with us, you consent to our recording and retention of communications.</p>
+               </section>
+
+              <section id="section2" class="mt-0 py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">How We Collect Information</h2>
+                  <p class="text-gray-500 text-[20px]">We may ask you to provide us with Personal Information when you communicate with us online or offline, including events, surveys, and marketing or promotional programs. You are not required to provide us your Personal Information; however, if you choose not to provide the requested information, you may not be able to use some or all of the features of the Sites or Services or we may not be able to fulfill your requested interaction. We may also capture Personal Information when you contact us or through your equipment or through other means such as phone or email.</p>
+                 
+              </section>
+
+               <section id="section3" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">Third-Party Data Sources</h2>
+                  <p class="text-gray-500 text-[20px]">We may collect Personal Information from third-party data sources such as marketing agencies, lead generators, other SunLink Group customers, fulfillment and account servicing companies, (including sales and/or installation dealers), equipment manufacturers, credit bureaus and/or reporting agencies, analytics firms, map and/or satellite imagery providers, public records, and government agencies.</p>
+                
+              </section>
+
+               <section id="section4" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">Cookies and Interest-Based Advertising</h2>
+                  <p class="text-gray-500 text-[20px]">We use cookies (a small text file placed on your computer to identify your computer and browser) and other automated tools such as pixels to track your interaction with our Sites and to improve the experience of the Sites and Services, such as saving your preferences from visit to visit to present you with a customized version of the Websites. Many web browsers are initially set up to accept cookies. You can reset your web browser to refuse all cookies or to indicate when a cookie is being sent. However, certain features of our Sites may not work if you delete or disable cookies.</p>
+                  <p class="text-gray-500 text-[20px]">We use the following types of cookies:</p>
+                   <ul class="list-disc text-gray-500 pl-10 text-[20px] space-y-2">
+                     <li>Strictly Necessary: These cookies are essential to operate the Sites and provide you with services you have requested. They cannot be switched off.</li>
+                     <li>Functional: These cookies enable certain features or non-essential functionality on our Sites. For example, we might use these cookies to recognize you and remember your preferences or settings when you return to our Sites so we can provide you with a more personalized experience.</li>
+                     <li>Targeting Cookies: These cookies allow us and third parties to learn more about you, including your use of our Sites and other websites, and to advertise products/services that might interest you as further indicated below.</li>
+                     <li>Performance Cookies: These cookies help us and third parties understand how our Sites is working and who is visiting our Sites.</li>
+                     </ul>  
+                 
+                 <p class="text-gray-500 text-[20px]">We and third parties also use tools that enable us to track certain aspects of a user’s visit to our Sites. This technology helps us better manage content on our Sites by informing us what content is effective, how consumers engage with our Sites, and how consumers arrive at and/or depart from our Sites. The software typically uses two methods to track user activity: (1) “tracking pixels” and (2) “clear gifs.” Tracking pixels are pieces of executable code that are embedded in a web page that track usage activity including which pages are viewed, when they are viewed, and how long the pages are viewed. Clear gifs are tiny graphics with unique identifiers which are embedded in web pages and email messages that track whether a user views a web page or email message. User activity information may be associated with additional information about a user’s session and Personal Information, if provided by the user. You can opt-out of certain types of cookies and other tracking tools by managing your preferences through our Sites (e.g., by clicking the cookie icon at the bottom of the homepage). If you arrive at our Sites by “clicking through” from another website, then certain information about you that you provided to that other website, such as the terms you searched that led you to our Sites, may be transmitted to us and we may use it. You should review the privacy policy of any website from which you reached our Sites to determine what information the operator collects and how it uses such information. We may retain information about you provided to us by other websites and will use it in accordance with this Privacy Policy. Such information may be associated with other Usage Data or Personal Information.</p>   
+                 
+                 <h2 class="text-2xl font-bold mb-4 ">Interest-Based Advertising</h2>
+                  <p class="text-gray-500 text-[20px]">We may work with third-party advertisers, search providers, and ad networks (“Advertisers”) to learn more about you and show you ads or other content that we believe would be relevant to you. Advertisers may collect and use information about your use of our Sites or Services as well as other websites and services. These companies may use cookies and other online tracking technologies to collect and use your information. We and/or Advertisers may also append other data to the data collected by Advertisers to create an interest profile of individual users. Our Privacy Policy does not cover any use by an Advertiser of information that they may collect from you. Advertisements may be shown via our Sites or on third-party websites. If you want to limit interest-based advertising, please visit the Digital Advertising Alliance (DAA) Consumer Choice Page. The DAA website allows you to opt-out of one or more interest-based advertising networks. Opt-outs are device and browser specific; therefore, you will need to set your opt-out preferences for each device and browser. Deleting browser cookies can remove your opt-out preferences; however, the DAA offers browser extensions that help preserve the opt-out preferences you set on the DAA's Consumer Choice Page. Please note that opt-outs only apply to interest-based advertising. You may still receive other types of online advertising. Your device or browser may also provide features to further limit interest-based advertising or online tracking by Advertisers.</p>
+
+                  <h2 class="text-2xl font-bold mb-4 ">Information from Advertisements</h2>
+                  <p class="text-gray-500 text-[20px]">If you arrive at our Sites via an advertisement (e.g., banner ad), we may collect information regarding the advertisement with which you interacted and your interactions (e.g., item clicked, date and time).</p>
+
+                   <h2 class="text-2xl font-bold mb-4 ">Social Media Widgets</h2>
+                  <p class="text-gray-500 text-[20px]">The Sites may include social media features, such as the Facebook, YouTube, Pinterest, LinkedIn, Instagram, and Twitter widgets. These features may collect information about your IP address and the pages you visit on our Sites as well as other Personal Information. A cookie may be set to ensure that a feature properly functions. These features and social media features are governed by the privacy policies of the companies that provide them and you should review the relevant privacy policies before interacting with the social media features.</p>
+
+               </section>
+
+               <section id="section5" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">How We Use and Disclose the Information We Collect</h2>
+                  <p class="text-gray-500 text-[20px]">We use Personal Information for business purposes, such as:</p>
+                 
+                   <ul class="list-disc text-gray-500 pl-10 text-[20px] space-y-2">
+                     <li>Account creation, fulfillment, servicing, and customer support: to process applications, create customer accounts, allow customers to create online accounts and profiles, provide goods or services, keep customers informed about the status of their services, respond to questions and addressing customers concerns, deliver updates, upgrades and product improvement information.</li>
+                     <li>Marketing and market research: to send communications and offers for our or third parties’ products and services, including offers based on consumers’ interests, personal and business characteristics and location; perform analytics for market and consumer research, trend analysis, financial analysis, and anonymization of personal information.</li>
+                     <li>Collection and credit reporting: to collect on outstanding balances, repossess collateral and update credit reporting agencies.</li>
+                     <li>Surveys, promotional events, contests: to administer surveys, polls, sweepstakes, contests, loyalty programs and other promotional events and contests.</li>
+                     <li>Other company communications: to provide consumers with information that may be of interest such as company newsletters, announcements, reminders, and technical service bulletins.
+                     <li>Website use and analytics: to provide you with access to and use of our Website and Services; analyze consumers’ use of our websites, including the use of third-party web analytics services, which may utilize automated technologies to collect data (such as email and IP addresses).</li>
+                     <li>Eligibility and Pricing: to determine if consumers are eligible for certain products, services or offers and the pricing related to such offers.</li>
+                     <li>Product research: to conduct research and analysis for maintaining, protecting, and developing services, increase and maintain the safety of our products and services, and prevent misuse.</li>
+                     <li>Business operations: to evaluate, develop, and improve business operations, products and services offered; business administration and other normal business activities.
+                     <li>Compliance: to comply with applicable legal requirements, industry standards, contractual obligations, our policies, and take actions that we deem necessary to preserve and enforce our rights and the rights of others.</li>
+                     <li>Information security and fraud prevention: to operate information security and anti-fraud programs.</li>
+                     <li>Energy programs: to conduct or participate in demand response or other energy use and/or efficiency programs, including load control.</li>
+                     <li>Renewable energy credit and wholesale market registries: to certify, register, sell, trade or otherwise monetize environmental attributes, renewable energy credits, green credits, and other tradeable energy or environmental related commodities produced by or associated with the photovoltaic solar systems.</li>
+                     </ul>  
+
+                      <p class="text-gray-500 text-[20px]">We use Sensitive Personal Information as follows:</p>
+
+                       <ul class="list-disc text-gray-500 pl-10 text-[20px] space-y-2">
+                           <li>Government Identifiers (social security numbers, driver’s licenses, and other government identification cards) – to provide the Services, service accounts, collect on accounts, and as otherwise required by law.</li>
+                           <li>SunLink Group account credentials – to permit access to customers’ online accounts and operate information security and anti-fraud programs.</li>
+                           <li>Biometric information – to confirm your identity as part of our anti-fraud programs.</li>
+                        </ul>  
+
+                        <p class="text-gray-500 text-[20px]">We may also use Personal Information and/or Sensitive Personal Information as described to you at the point of collection or as otherwise required or permitted by applicable laws. We only use Sensitive Personal Information related to California residents for purposes permitted by California Consumer Privacy Act regulations (11 CCR 7000 et seq.).</p>
+
+                        <h2 class="text-2xl font-bold mb-4 ">Service Providers</h2>
+
+                        <p class="text-gray-500 text-[20px]">We may provide your Personal Information without notice to other businesses (“Service Providers”) to provide services to us or to you on our behalf. Categories of service providers we use may include but are not limited to:</p>
+
+ <ul class="list-disc text-gray-500 pl-10 text-[20px] space-y-2">
+  <li>Fulfillment and account servicing vendors, which help us provide products, services and information to you, service your account or benefits, collect survey responses and support our e-commerce services;</li>
+  <li>Payment processors, which help us to accept and process the payments for our products and services to you;</li>
+  <li>Consumer/credit report services, which help us understand consumer’s eligibility and qualification for certain financing options;</li>
+  <li>Marketing and communications vendors, which help us market our products/services to you, provide space for us or dealers to market our products/services to you, or conduct promotions, events, surveys. and other outreach campaigns;</li>
+  <li>Research and development vendors, which help us develop and improve our products and services;</li>
+  <li>IT and network administration vendors, which provide services such as data storage and management, website hosting, and data security;</li>
+  <li>Professional service firms, which provide accounting, legal and other professional services;</li>
+  <li>General service providers, which help us with day-to-day business operations such as office support services, courier services, facilities management, and document destruction;</li>
+  <li>Energy management providers, which help us facilitate, register, and implement demand response and/or other energy management programs by reserving or discharging power from storage devices, and managing load control; and</li>
+  <li>Renewable energy credit and wholesale market registries, which require the sharing of certain Personal Information to register, certify, sell, trade, or otherwise monetize environmental attributes, renewable energy credits, green credits, and other tradeable energy or environmental related commodities produced by or associated with the photovoltaic solar systems.</li>
+</ul>
+
+<p class="text-gray-500 text-[20px]">Each Service Provider is expected to use reasonable security measures appropriate to the nature of the information involved to protect your Personal Information from unauthorized access, use, or disclosure. Service Providers are prohibited from using Personal Information that we provide to them other than as specified by us.</p>
+
+<p class="text-gray-500 text-[20px]">In the past twelve months we disclosed or made available each category of Personal Information that we collect (listed above) to Service Providers.</p>
+
+<h2 class="text-2xl font-bold mb-4 ">Third-Party Sale or Sharing</h2>
+<p class="text-gray-500 text-[20px]">Except where prohibited by law, we may sell or share (for targeted or cross-context behavioral advertising purposes) your Personal Information with other companies who do not provide services to us (“Third Parties”).</p>
+
+<p class="text-gray-500 text-[20px]">In the past twelve months, we sold and/or shared Personal Information (except Sensitive Personal Information) as follows:</p>
+
+<ul class="list-disc text-gray-500 pl-10 text-[20px] space-y-2">
+  <li>Industry associations and advocacy groups: we sold identifiers, commercial information, and other demographic information to allow these associations and groups to provide consumers with information that may be of interest.</li>
+  <li>Advertising, social media, and analytics companies: we sold and/or shared Identifiers and Internet or other electronic network activity information for the purposes described above. These companies may use your Personal Information for additional purposes outlined in their privacy policies.</li>
+  <li>Providers, sponsors, and facilitators of demand response programs: we disclosed (in a manner that may qualify as a sale in certain jurisdictions) Identifiers and Commercial Information.</li>
+</ul>
+
+<p class="text-gray-500 text-[20px]">We reserve the right to sell or share Personal Information with other third parties in the future, subject to applicable laws. We do not knowingly sell or share the Personal Information of consumers under 18 years of age.</p>
+
+<h2 class="text-2xl font-bold mb-4 ">Other Third-Party Disclosures</h2>
+<p class="text-gray-500 text-[20px]">We may occasionally disclose your Personal Information with Third Parties, for purposes such as:</p>
+
+<ul class="list-disc text-gray-500 pl-10 text-[20px] space-y-2">
+  <li>To comply with applicable laws;</li>
+  <li>To respond to compulsory process or law enforcement requests;</li>
+  <li>To protect the rights, property or safety of our customers or prospective customers, the public, the SunLink or any third party;</li>
+  <li>If we reorganize or transfer various assets and lines of business. Notwithstanding anything to the contrary stated herein or on our Websites, we reserve the right to disclose or transfer any information we collect in connection with any proposed or actual purchase, sale, lease, merger, foreclosure, liquidation, amalgamation or any other type of acquisition, disposal, transfer, conveyance or financing of all or any portion of the SunLink or its assets.</li>
+  <li>For additional purposes with your consent where such consent is required by law.</li>
+</ul>
+
+<p class="text-gray-500 text-[20px]">In the past twelve months, we may have disclosed each category of Personal Information for the purposes listed above.</p>
+
+<h2 class="text-2xl font-bold mb-4 ">Biometric Information Retention Schedule
+<p class="text-gray-500 text-[20px]">In circumstances where SunLink retains Biometric Information, we will permanently destroy an individual’s Biometric Data within six (6) months of when the initial purpose for collecting or obtaining such Biometric Data has been satisfied, such as:</p>
+
+<ul class="list-disc text-gray-500 pl-10 text-[20px] space-y-2">
+  <li>You revoke your consent contained in the Biometric Notice;</li>
+  <li>You have not contacted SunLink or used our Services for a 30-month period;</li>
+  <li>Your contract with SunLink has expired and you are no longer a SunLink customer; or</li>
+  <li>SunLink no longer uses the Biometric Information.</li>
+</ul>
+
+<p class="text-gray-500 text-[20px]">If any SunLink’s Service Providers require access to Biometric Data in order to fulfill the purpose of collecting such information, we will request that they follow the above destruction schedule.</p>
+
+<h2 class="text-2xl font-bold mb-4 ">Links and Other Websites
+<p class="text-gray-500 text-[20px]">Our Sites may contain links to third party websites, including social media platforms. Please be aware that if you access these links, you will be leaving our site. We encourage users to read the privacy policies of those sites, as we are not responsible for their content, links, or privacy procedures.</p>
+ 
+<h2 class="text-2xl font-bold mb-4 ">OTHER IMPORTANT PRIVACY PROVISIONS
+<p class="text-gray-500 text-[20px]">Legal Compliance, Business Transfers and Other Disclosures
+Notwithstanding anything to the contrary stated herein or on our Website, we may occasionally release information about users of our Website when we deem such release appropriate to comply with law, respond to compulsory process or law enforcement requests, or protect the rights, property or safety of our customers or prospective customers, the public, theSunLink or any third party. Over time, we may reorganize or transfer various assets and lines of business. Notwithstanding anything to the contrary stated herein or on our Website, we reserve the right to disclose or transfer any information we collect in connection with any proposed or actual purchase, sale, lease, merger, foreclosure, liquidation, amalgamation or any other type of acquisition, disposal, transfer, conveyance or financing of all or any portion of the SunLink.</p>
+
+              </section>
+
+              
+
+              
+            </div>
+         </div>
+</section>
+
+
+<!-- footer start here -->
+<footer class="bg-gray-900 text-gray-300 px-4 py-6 sm:px-6 sm:py-8  md:py-10 lg:px-2 xl:px-14 lg:py-12">
+  <div class="w-full mx-auto px-4 sm:px-2 md:px-2  lg:px-8">
+     <div class="grid grid-cols-1 xl:grid-cols-[0.6fr_1.5fr_0.4fr] lg:grid-cols-[1fr_1.5fr_0.8fr] md:grid-cols-[1fr_1.5fr] gap-8">
+      
+      <!-- Column 1: Logo & About -->
+      <div>
+        <img src="assets/images/sunlink-logo.svg" alt="logo" width="150"/>
+        <p class="text-sm leading-relaxed mt-5">
+          SunLink revolutionizes the solar industry by putting the power back in your hands. Our innovative platform eliminates high-pressure sales tactics and inflated commissions, allowing homeowners to design, customize, and purchase their solar system entirely online – at a fraction of traditional costs.
+        </p>
+        <div class="socialicons mt-6">
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="flex justify-center items-top grid grid-cols-1 xl:grid-cols-[1fr_0.8fr_1fr_1fr] md:grid-cols-[1fr_1fr] lg:grid-cols-[0.4fr_1fr_1fr_0.1fr] md:grid-cols-[1fr_1fr] ">
+         <div class="hidden lg:block"></div>
+        <div>
+             <h4 class="text-sm text-gray-300 mb-4">COMPANY</h4>
+              <ul class="space-y-2 text-sm font-mono text-white">
+                <li><a href="about.html" class="hover:text-orange transition">ABOUT</a></li>
+                <li><a href="#" class="hover:text-orange transition">HOW IT WORKS</a></li>
+                <li><a href="#" class="hover:text-orange transition">PRICING</a></li>
+                <li><a href="#" class="hover:text-orange transition">FAQ</a></li>
+              </ul>
+         </div>
+         <div>
+            <h4 class="text-sm text-gray-300 mb-4">RESOURCES</h4>
+            <ul class="space-y-2 text-sm font-mono text-white">
+              <li><a href="#" class="hover:text-orange transition">TESTIMONIALS</a></li>
+              <li><a href="privacy-policy.html" class="hover:text-orange transition">PRIVACY POLICY</a></li>
+              <li><a href="terms-of-service.html" class="hover:text-orange transition">TERMS OF SERVICE</a></li>
+              <li><a href="#" class="hover:text-orange transition">REFERRAL PROGRAM</a></li>
+            </ul>
+         </div>
+        <div class="hidden lg:block"></div>
+      </div>
+
+     
+
+      <!-- Column 4: Contact Info -->
+      <div class="flex justify-end items-start lg:block hidden">
+       <a href="#" class=" bg-orange hover:bg-orange  py-4 px-5 me-2 mb-2 text-sm font-normal text-white uppercase ">try sunlink now</a>
+      </div>
+
+    </div>
+
+    <div class="mt-10 text-center text-sm text-white border-t border-gray-700 pt-6 font-mono uppercase">
+      &copy; 2025 sunlink. all rights reserved. <br><br>
+
+      Actual savings will vary depending on system production, geography, weather, shade, electricity usage, utility rates, rate increases, and financing options. Savings estimated here assumes utility rate increases annually and stable customer utility usage rates. Contact us to receive a detailed proposal based on your home and energy usage.
+      </bar>
+    </div>
+
+
+  </div>
+</footer>
+
+<!-- footer end here -->
+
+      </div>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <!-- jQuery -->
+      <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+      <!-- Owl Carousel JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $("#owl-carousel-testimonials").owlCarousel({
+               loop: true,
+               margin: 20,
+               nav: false,      // Optional: hide arrows
+             dots: true,  
+               autoplay: true,
+               autoplayTimeout: 3000,
+               autoplayHoverPause: true,
+               
+               responsive: {
+                 0: { items: 1 },
+                 768: { items: 2 },
+                 1024: { items: 3 },
+                 1200: { items: 4 }
+               },
+               onChanged: function(event) {
+                 const items = $('.owl-item');
+                 items.removeClass('current');
+                 items.eq(event.item.index).addClass('current');
+               }
+         });
+         
+         
+         
+         
+         
+         
+         const nav = document.getElementById("mainNav");
+         
+         window.addEventListener("scroll", () => {
+         if (window.scrollY > 200) {
+         nav.classList.add("nav-scrolled");
+         } else {
+         nav.classList.remove("nav-scrolled");
+         }
+         });
+         
+         const counters = document.querySelectorAll('.counter');
+         const options = { threshold: 0.6 };
+         
+         const animateCount = (el, target, suffix = '', prefix = '') => {
+         let start = 0;
+         const duration = 2000;
+         const startTime = performance.now();
+         
+         const step = (currentTime) => {
+           const elapsed = currentTime - startTime;
+           const progress = Math.min(elapsed / duration, 1);
+           const value = Math.floor(progress * target);
+           el.innerText = `${prefix}${value}${suffix}`;
+           if (progress < 1) {
+             requestAnimationFrame(step);
+           } else {
+             el.innerText = `${prefix}${target}${suffix}`;
+           }
+         };
+         
+         requestAnimationFrame(step);
+         };
+         
+         
+         
+         const observer = new IntersectionObserver((entries, observer) => {
+         entries.forEach(entry => {
+           if (entry.isIntersecting) {
+             const el = entry.target;
+             const target = parseFloat(el.getAttribute('data-target'));
+             const suffix = el.getAttribute('data-suffix') || '';
+             const prefix = el.getAttribute('data-prefix') || '';
+             animateCount(el, target, suffix, prefix);
+             observer.unobserve(el);
+           }
+         });
+         }, options);
+         
+         counters.forEach(counter => {
+         observer.observe(counter);
+         });
+         
+         
+         const progressLine = document.getElementById('progress-line');
+         const timeline = progressLine.parentElement;
+         
+         window.addEventListener('scroll', () => {
+         const rect = timeline.getBoundingClientRect();
+         const viewportHeight = window.innerHeight;
+         
+         if (rect.top < viewportHeight && rect.bottom > 0) {
+           // Calculate visible height percentage
+           const totalHeight = rect.height;
+           const scrollTop = Math.min(viewportHeight - rect.top, totalHeight);
+           const heightPercent = Math.max(0, Math.min(scrollTop / totalHeight, 1));
+           progressLine.style.height = `${heightPercent * totalHeight}px`;
+         }
+         });
+         
+         
+         });
+         
+         $(document).ready(function(){
+           $('#owl-carousel-logos').owlCarousel({
+             loop: true,
+             margin: 20,
+             autoplay: true,
+             autoplayTimeout: 2000,
+             dots: false,
+             autoplayHoverPause: true,
+             responsive: {
+               0: {
+                 items: 2
+               },
+               640: {
+                 items: 3
+               },
+               1024: {
+                 items: 6
+               }
+             }
+           });
+         });
+         
+         
+         const observer = new IntersectionObserver(entries => {
+           entries.forEach(entry => {
+             if (entry.isIntersecting) {
+               entry.target.classList.add('visible');
+             }
+           });
+         }, {
+           threshold: 0.1
+         });
+         
+         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+
+   
+  $(document).ready(function () {
+    const navLinks = $("#menu1 a");
+
+    // Handle click: scroll & active class
+    navLinks.on("click", function (e) {
+      e.preventDefault();
+      const target = $(this).attr("href");
+
+      // Remove and set active class
+      navLinks.removeClass("active ");
+      $(this).addClass("active ");
+
+      // Smooth scroll
+      $("html, body").animate({
+        scrollTop: $(target).offset().top - 100 // adjust offset if needed
+      }, 500);
+    });
+  });
+      </script>
+   </body>
+</html>

@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="dist/output.css" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<!-- Alpine.js CDN (make sure this is included) -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body>
+ <div class="bg-white">
+
+  
+
+<section class="overflow-hidden py-4 px-4 md:px-8 lg:px-14">
+
+    <form action="#" method="POST" x-data="{ useEmail: false }" class="formlayout mt-8 relative">
+
+  <div class="  mx-auto max-w-8xl px-6 lg:px-4">
+    <div class="grid grid-cols-1 xl:grid-cols-[0.8fr_1.5fr] lg:grid-cols-[1fr_1fr] gap-8 items-center">
+        <div class="lg:pt-4 lg:pr-8">
+             <img src="assets/images/logo-orange.svg" alt="logo-orange"/>
+
+             <h2 class="mt-6 mb-2 text-6xl sm:text-4xl font-normal tracking-tight text-pretty">Welcome back</h2>
+            
+            
+              
+
+                <!-- Phone Input -->
+                <div x-show="!useEmail" x-transition class="mb-8 relative">
+                    <p class="text-gray-700">Enter your phone number to sign in </p>
+                <div class="relative">
+                
+                  <div class="absolute inset-y-0 left-0 w-[50px] flex items-center pointer-events-none">
+                    <img class="w-[30px] mx-auto" src="assets/images/call.svg" alt="call" />
+                  </div>
+                  <input type="tel" placeholder="(555) 555-5555"
+                    class="mt-1 w-full pl-14 pr-4 py-2 border rounded focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+
+                <!-- Email Input -->
+                <div x-show="useEmail" x-transition class="mb-8 relative">
+                  <p class="text-gray-700">Enter your email  to sign in </p>
+                    <div class="relative">
+                  <div class="absolute inset-y-0 left-0 w-[50px] flex items-center pointer-events-none">
+                    <img class="w-[30px] mx-auto" src="assets/images/email-1.svg" alt="email" />
+                  </div>
+                  <input type="email" placeholder="you@example.com"
+                    class="mt-1 w-full pl-14 pr-4 py-2 border rounded focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                </div>
+
+                  <!-- Button -->
+                  <div class="mb-8">
+                    <button type="submit"
+                      class="bg-orange hover:bg-orange py-4 px-5 me-2 mb-2 text-sm font-normal text-white uppercase">
+                      Send code
+                    </button>
+                  </div>
+
+                  <!-- Terms and Link -->
+                  <p class="text-gray-500 text-sm mb-2 mt-2">
+                    By logging into my account, I agree to 
+                    <a href="terms-of-service.html" class="text-gray-900 underline">SunLink's Terms of Use</a> and 
+                    <a href="privacy-policy.html" class="text-gray-900 underline">Privacy Policy</a>
+                  </p>
+                  <p class="text-gray-500 text-sm mt-0">
+                    Click here to <a href="#" class="text-gray-900 underline">sign in with email</a>
+                  </p>
+
+
+           
+           
+        </div>
+
+ 
+        <div class="imgbx flex justify-end relative ">
+             <!-- Toggle Arrows -->
+            <div class="absolute bottom-0 left-0 flex items-center gap-2 slidebutton">
+              <button type="button" @click="useEmail = false" class="text-gray-500 ">
+                <img src="assets/images/arrow-left.svg" class="inline"/>
+              </button>
+              <button type="button" @click="useEmail = true" class="text-gray-500">
+                <img src="assets/images/arrow-right.svg" class="inline"/>
+              </button>
+            </div>
+            <img class="  rounded-xl" src="assets/images/signin-bx.jpg" alt="design-system"/>
+
+            <!--<div class="testimonialbx absolute bottom-0 p-4 ">
+              <p class="text-[25px] text-white">"Working with SunLink was a positive experience. They’re very knowledgeable about residential solar and helped us design a system that is large enough to handle our current electric needs and ready for our future plans.”</p>
+              <p class="text-[25px] text-white">Chuck M., Verified Customer</p>
+            </div>-->
+             
+      </div>
+      </div>
+
+  </div>
+  </form>
+</section>
+
+
+<!-- footer start here -->
+<footer class="bg-gray-900 text-gray-300 px-4 py-6 sm:px-6 sm:py-8  md:py-10 lg:px-2 xl:px-14 lg:py-12">
+  <div class="w-full mx-auto px-4 sm:px-2 md:px-2  lg:px-8">
+     <div class="grid grid-cols-1 xl:grid-cols-[0.6fr_1.5fr_0.4fr] lg:grid-cols-[1fr_1.5fr_0.8fr] md:grid-cols-[1fr_1.5fr] gap-8">
+      
+      <!-- Column 1: Logo & About -->
+      <div>
+        <img src="assets/images/sunlink-logo.svg" alt="logo" width="150"/>
+        <p class="text-sm leading-relaxed mt-5">
+          SunLink revolutionizes the solar industry by putting the power back in your hands. Our innovative platform eliminates high-pressure sales tactics and inflated commissions, allowing homeowners to design, customize, and purchase their solar system entirely online – at a fraction of traditional costs.
+        </p>
+        <div class="socialicons mt-6">
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="flex justify-center items-top grid grid-cols-1 xl:grid-cols-[1fr_0.8fr_1fr_1fr] md:grid-cols-[1fr_1fr] lg:grid-cols-[0.4fr_1fr_1fr_0.1fr] md:grid-cols-[1fr_1fr] ">
+         <div class="hidden lg:block"></div>
+        <div>
+             <h4 class="text-sm text-gray-300 mb-4">COMPANY</h4>
+              <ul class="space-y-2 text-sm font-mono text-white">
+                <li><a href="about.html" class="hover:text-orange transition">ABOUT</a></li>
+                <li><a href="#" class="hover:text-orange transition">HOW IT WORKS</a></li>
+                <li><a href="#" class="hover:text-orange transition">PRICING</a></li>
+                <li><a href="#" class="hover:text-orange transition">FAQ</a></li>
+              </ul>
+         </div>
+         <div>
+            <h4 class="text-sm text-gray-300 mb-4">RESOURCES</h4>
+            <ul class="space-y-2 text-sm font-mono text-white">
+              <li><a href="#" class="hover:text-orange transition">TESTIMONIALS</a></li>
+              <li><a href="privacy-policy.html" class="hover:text-orange transition">PRIVACY POLICY</a></li>
+              <li><a href="terms-of-service.html" class="hover:text-orange transition">TERMS OF SERVICE</a></li>
+              <li><a href="#" class="hover:text-orange transition">REFERRAL PROGRAM</a></li>
+            </ul>
+         </div>
+        <div class="hidden lg:block"></div>
+      </div>
+
+     
+
+      <!-- Column 4: Contact Info -->
+      <div class="flex justify-end items-start lg:block hidden">
+       <a href="#" class=" bg-orange hover:bg-orange  py-4 px-5 me-2 mb-2 text-sm font-normal text-white uppercase ">try sunlink now</a>
+      </div>
+
+    </div>
+
+    <div class="mt-10 text-center text-sm text-white border-t border-gray-700 pt-6 font-mono uppercase">
+      &copy; 2025 sunlink. all rights reserved. <br><br>
+
+      Actual savings will vary depending on system production, geography, weather, shade, electricity usage, utility rates, rate increases, and financing options. Savings estimated here assumes utility rate increases annually and stable customer utility usage rates. Contact us to receive a detailed proposal based on your home and energy usage.
+      </bar>
+    </div>
+
+
+  </div>
+</footer>
+
+<!-- footer end here -->
+
+
+</div>
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- jQuery -->
+ <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: false,      // Optional: hide arrows
+        dots: true,  
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          
+          responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            1024: { items: 3 },
+            1200: { items: 4 }
+          },
+          onChanged: function(event) {
+            const items = $('.owl-item');
+            items.removeClass('current');
+            items.eq(event.item.index).addClass('current');
+          }
+    });
+ 
+  
+  
+
+
+
+ const nav = document.getElementById("mainNav");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+    nav.classList.add("nav-scrolled");
+  } else {
+    nav.classList.remove("nav-scrolled");
+  }
+  });
+
+const counters = document.querySelectorAll('.counter');
+  const options = { threshold: 0.6 };
+
+  const animateCount = (el, target, suffix = '', prefix = '') => {
+    let start = 0;
+    const duration = 2000;
+    const startTime = performance.now();
+
+    const step = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = Math.floor(progress * target);
+      el.innerText = `${prefix}${value}${suffix}`;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.innerText = `${prefix}${target}${suffix}`;
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseFloat(el.getAttribute('data-target'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        const prefix = el.getAttribute('data-prefix') || '';
+        animateCount(el, target, suffix, prefix);
+        observer.unobserve(el);
+      }
+    });
+  }, options);
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+
+
+const progressLine = document.getElementById('progress-line');
+  const timeline = progressLine.parentElement;
+
+  window.addEventListener('scroll', () => {
+    const rect = timeline.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    if (rect.top < viewportHeight && rect.bottom > 0) {
+      // Calculate visible height percentage
+      const totalHeight = rect.height;
+      const scrollTop = Math.min(viewportHeight - rect.top, totalHeight);
+      const heightPercent = Math.max(0, Math.min(scrollTop / totalHeight, 1));
+      progressLine.style.height = `${heightPercent * totalHeight}px`;
+    }
+  });
+
+
+   });
+</script>
+</body>
+</html>

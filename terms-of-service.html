@@ -1,0 +1,512 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="dist/output.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+      <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="bg-white">
+        
+         
+         <header class="inset-x-0 top-0 z-50" x-data="{ mobileOpen: false }">
+  <!-- Top Bar -->
+  <div class="header-top hidden lg:flex flex-wrap items-center justify-between p-2 lg:px-8 text-sm text-gray-700 bg-white">
+     <div class="flex items-center space-x-2"><img src="assets/images/location.svg" class="pe-1" /> Enter your location</div>
+    <div class="flex items-center space-x-2 text-center">Join 1000+ homeowners who’ve gone solar <img src="assets/images/ht-arrow.svg" class="ps-1 mt-1" /></div>
+    <div class="flex items-center space-x-2"><img src="assets/images/call_svgrepo.com.svg" class="pe-1" /> Call us at +1 (801) 897-4270</div>
+  </div>
+
+  <!-- Main Nav -->
+  <nav id="mainNav" class="absolute w-full flex items-center justify-between p-6 lg:px-8  text-white" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="index.html" class="-m-1.5 p-1.5">
+        <img class="h-8 w-auto" src="assets/images/sunlink-logo.svg" alt="Sunlink Logo" />
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="flex lg:hidden">
+      <button @click="mobileOpen = true" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
+        <span class="sr-only">Open main menu</span>
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Nav -->
+    <div class="hidden lg:flex align-center xl:gap-x-12  lg:gap-x-2 uppercase">
+      <a href="about.html" class="text-base font-normal text-white p-2">About</a>
+      <!-- Products Dropdown -->
+      <div class="group relative pt-2">
+        <a href="products.html" class="text-base font-normal hover:text-blue-400 transition p-2">Products <i class="fas fa-chevron-down"></i></a>
+        <div class="absolute left-0 mt-2 hidden w-64 bg-white text-black rounded shadow-lg group-hover:block z-50">
+          <a href="product-solar.html" class="block px-4 py-2 hover:bg-blue-100">Solar Savings Plan</a>
+          <a href="product-solar-storage.html" class="block px-4 py-2 hover:bg-blue-100">Solar and Storage Plans</a>
+          <a href="product-storage.html" class="block px-4 py-2 hover:bg-blue-100">Storage Only Plans</a>
+        </div>
+      </div>
+      <a href="#" class="text-base font-normal text-white p-2">Installation</a>
+      <a href="financing.html" class="text-base font-normal text-white p-2">Financing</a>
+     <div class="group relative pt-2">
+        <a href="#" class="text-base font-normal hover:text-blue-400 transition p-2">Resources <i class="fas fa-chevron-down"></i></a>
+        <div class="absolute left-0 mt-2 hidden w-64 bg-white text-black rounded shadow-lg group-hover:block z-50">
+          <a href="privacy-policy.html" class="block px-4 py-2 hover:bg-blue-100">Privacy Policy</a>
+          <a href="terms-of-service.html" class="block px-4 py-2 hover:bg-blue-100">Terms of use</a>
+         
+        </div>
+      </div>
+        
+    
+      <a href="#" class="text-base font-normal text-white p-2">Contact</a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="signin.html" class="text-base font-normal text-white uppercase me-3 mt-1">Log in</a>
+      <a href="#" class="bg-orange hover:bg-orange   py-2 px-4 text-sm font-normal text-white uppercase">Try Sunlink Now</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" x-show="mobileOpen" @click="mobileOpen = false" x-transition.opacity></div>
+
+  <!-- Mobile Slide-In Menu -->
+<!-- Mobile Slide-In Menu -->
+<div 
+  class="fixed inset-y-0 right-0 z-50 w-4/5 max-w-sm overflow-y-auto bg-white p-6 transform transition-transform duration-300"
+  x-show="mobileOpen"
+  x-transition:enter="translate-x-full"
+  x-transition:enter-start="translate-x-full"
+  x-transition:enter-end="translate-x-0"
+  x-transition:leave="translate-x-0"
+  x-transition:leave-end="translate-x-full"
+  x-data="{ openProducts: false, openResources: false }"
+  style="display: none;"
+>
+  <div class="flex items-center justify-between mb-6">
+    <img src="assets/images/sunlink-logo.svg" class="h-8" alt="logo" />
+    <button @click="mobileOpen = false" class="-m-2.5 p-2.5">
+      <svg class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+
+    <nav class="space-y-4">
+      <a href="about.html" class="block text-base font-medium text-gray-900">About</a>
+      
+      <div>
+      <button @click="openProducts = !openProducts" class="flex justify-between items-center w-full text-base font-medium text-gray-900">
+        Products
+        <svg :class="{'rotate-180': openProducts}" class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div x-show="openProducts" x-collapse class="pl-4 mt-2 space-y-2">
+        <a href="product-solar.html" class="block px-4 py-2 hover:bg-blue-100">Solar Savings Plan</a>
+          <a href="product-solar-storage.html" class="block px-4 py-2 hover:bg-blue-100">Solar and Storage Plans</a>
+          <a href="product-storage.html" class="block px-4 py-2 hover:bg-blue-100">Storage Only Plans</a>
+      </div>
+    </div>
+      <a href="#" class="block text-base font-medium text-gray-900">Installation</a>
+      <a href="financing.html" class="block text-base font-medium text-gray-900">Financing</a>
+    <!-- Resources Dropdown -->
+    <div>
+      <button @click="openResources = !openResources" class="flex justify-between items-center w-full text-base font-medium text-gray-900">
+        Resources
+        <svg :class="{'rotate-180': openResources}" class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div x-show="openResources" x-collapse class="pl-4 mt-2 space-y-2">
+         <a href="privacy-policy.html" class="block px-4 py-2 hover:bg-blue-100">Privacy Policy</a>
+          <a href="terms-of-service.html" class="block px-4 py-2 hover:bg-blue-100">Terms of use</a>
+      </div>
+    </div>
+      <a href="#" class="block text-base font-medium text-gray-900">Contact</a>
+      <a href="signin.html" class="block text-base font-medium text-gray-900">Log in</a>
+      <a href="#" class="block bg-orange-500 text-white text-center py-2 mt-2 rounded font-semibold">Try Sunlink Now</a>
+    </nav>
+  </div>
+</header>
+      
+
+   <section class="overflow-hidden bg-white py-32 h-100 bg-termsuse relative">
+         <div class="mx-auto w-full px-6 lg:px-8 relative py-20 sm:py-16 lg:py-16">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+               <div class="lg:pt-4 lg:pr-8">
+                  <div class="lg:max-w-lg">
+                     <h2 class="mt-2  text-7xl   font-normal tracking-tight text-pretty text-white ">Term of Service</h2>
+                     <p class="mt-6 text-xl text-white">Last updated: April 16, 2025</p>
+                   
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+      <section class=" pb-16 pt-16 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-4 mx-auto p-6 gap-6">
+    
+
+         
+            <!-- Left Sidebar Menu -->
+            <nav id="menu1" class="md:col-span-1 sticky top-6 space-y-4">
+               <a href="#section1" class="block px-4 py-2 active" data-section="section1">1. Applicability</a>
+               <a href="#section2" class="block px-4 py-2" data-section="section2">2. General Provisions</a>
+               <a href="#section3" class="block px-4 py-2" data-section="section3">3. Information Provided On the Site or Through the Services</a>
+               <a href="#section4" class="block px-4 py-2" data-section="section4">4. Use of the Site and Services</a>
+
+                <a href="#section5" class="block px-4 py-2" data-section="section5">5. Third Party Sites</a>
+               <a href="#section6" class="block px-4 py-2" data-section="section6"> 6. Billing</a>
+               <a href="#section7" class="block px-4 py-2" data-section="section7">7. Digital Millennium Copyright Act Notice</a>
+               <a href="#section8" class="block px-4 py-2" data-section="section8">8. Disputes; Governing Law; Jurisdiction</a>
+
+                <a href="#section9" class="block px-4 py-2" data-section="section9">9. Disclaimer and Limitation of Liability</a>
+               <a href="#section10" class="block px-4 py-2" data-section="section10">10. Indemnity</a>
+               <a href="#section11" class="block px-4 py-2" data-section="section11">11. Termination</a>
+               <a href="#section12" class="block px-4 py-2" data-section="section12">12. Notices, Questions, and Customer Service</a>
+               <a href="#section13" class="block px-4 py-2" data-section="section13">13. Miscellaneous</a>
+            </nav>
+
+            <!-- Right Content Area -->
+            <div class="md:col-span-3 space-y-8">
+               <section id="section1" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">1. APPLICABILITY</h2>
+                  <p class="text-gray-500">These Terms of Use apply to all websites, including social media properties, and mobile applications that are owned, operated, and maintained by or for SunLink Corporation and its affiliates (collectively, “SunLink,” “we,” or “our”) and upon which these Terms of Use are linked, including www.sunlink-app.com (“Site”). SunLink is a XXX.</p>
+                  <p class="text-gray-500">SunLink is a leading solar energy and storage service provider that provides clean, affordable, and reliable energy (the products and associated operations, referred to collectively herein as “Services”).</p>
+                  <p class="text-gray-500">If you are located in the European Economic Area (EEA), Switzerland, or the United Kingdom, these Terms of Use are between you and SunLink a company subject to the laws of Amsterdam with a registration number of 7353308 and SunLink a company subject to the laws of Germany with a registration number of 72/2023P.</p>
+               </section>
+
+              <section id="section2" class="mt-0 py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">2. GENERAL PROVISIONS</h2>
+                  <p class="text-gray-500">These terms of use, together with the Privacy Policy and any supplemental terms, conditions, or rules posted to the site or otherwise made available in connection with the services (collectively, “terms”), set forth the legally binding terms governing your use of the site and services. By accessing or using the site or services, you agree to be bound by these terms and all applicable laws. If you do not agree to all of the terms, conditions, and restrictions set forth in these terms, Sunlink does not grant you the right to use the site or services. If you enter into a customer agreement with Sunlink and any provision in that agreement conflicts with these terms, the provision(s) in the customer agreement control.</p>
+                  <p class="text-gray-500">The Site and Services are intended for use only by citizens and legal permanent residents of the United States of America or EEA, United Kingdom or Switzerland residing within the United States of America (including its territories) or EEA, United Kingdom or Switzerland 18 years of age or older. If you are not a member of the intended audience, you are prohibited from accessing the Site or using the Services.</p>
+                 
+              </section>
+
+               <section id="section3" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">3. Information Provided On the Site or Through the Services</h2>
+                   <p class="text-gray-500">A. Content. The Site provides you with information about our Services. All this information and any other information we provide to you through the Site is referred to herein as “Content.” Although we and all parties involved in creating, producing, or delivering Content make all reasonable efforts to ensure that it is correct and up to date, we cannot guarantee 100% accuracy. WE THEREFORE DISCLAIM, TO THE FULLEST EXTENT PERMITTED BY LAW, ALL WARRANTIES AS DESCRIBED IN SECTION 9 BELOW.</p>
+                  <p class="text-gray-500">B. Ownership. All copyrights, trademarks, trade dress, other intellectual property and materials, including images, text, illustrations, formats, logos, designs, icons, photographs, programs, music clips, video clips and written and other materials on our Site or part of the Services (collectively, the “IP”) are owned, controlled or licensed by SunLink and are protected by U.S. and international trademark, copyright or other intellectual property laws. Software used in connection with the Site or Services is the property of SunLink or its suppliers and is protected by U.S. and international copyright laws. Such IP and software may be used only as a consumer resource. Any other use, including the reproduction, modification, distribution, transmission, republication, display, or performance, of the IP is strictly prohibited. The compilation (meaning the collection, arrangement, and assembly) of all IP is the exclusive property of SunLink and is also protected by U.S. and international copyright laws. SunLink, the SunLink name and logos, and all other graphics, logos, page headers, button icons, scripts, and service names included in or made available through the Site or Services are trademarks or trade dress of SunLink in the U.S. or EEA, United Kingdom or Switzerland as applicable (“Trademarks”). All other marks are the property of their respective companies.</p>
+                  <p class="text-gray-500">C. Limited License. Subject to your strict compliance with these Terms, SunLink grants you a limited, non-exclusive, revocable, non-assignable, personal, and non-transferable license to (i) use the Site and (ii) access, view, download, and print the materials displayed on the Site or provided via the Services for your personal, non-commercial use only; provided, however, that you (i) retain all copyright, trademark or other proprietary designations or watermarks contained on all IP; (ii) do not modify or alter the IP in any way; and (iii) do not provide or make available the IP to any third party in a commercial manner. Other than this limited license, no license, right, title, or interest in any IP is transferred to you as a result of your use of the Site or Services or your accessing, viewing, downloading, or printing of the IP. You may not reproduce (except as noted above), publish, transmit, distribute, display, modify, create derivative works from, sell or participate in any sale of or exploit in any way, in whole or in part, any of the IP, the Site, Services, or any related software.</p>
+                   <p class="text-gray-500">D. Reservation of Rights. These Terms include only narrow, limited grants of rights to IP and to use and access the Site and Services. No right or license may be construed, under any legal theory, by implication, estoppel, industry custom, or otherwise. All rights not expressly granted to you are reserved by SunLink and its licensors and other third parties. Any unauthorized use of any IP, the Site, or the Services for any purpose is prohibited.</p>
+             
+                
+              </section>
+
+               <section id="section4" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">4. Use of the Site and Services</h2>
+                   <p class="text-gray-500">A. User Content Submission; Termination of Access. he Site may let you submit material to us or to third parties: for example, you may be able to upload a photo, send us messages, or post a review about our Services. In these Terms, we use “Submissions” to refer to any material of any kind that you submit to us or third parties through the Site, including text, files, images, photos, video, sounds and musical or literary works.</p>
+                  <p class="text-gray-500">We are not responsible for the content of Submissions provided by you or any other user. We do not endorse any opinion contained in such material. We make no warranties or representations, express or implied, about Submissions, including as to their legality or accuracy.</p>
+                  <p class="text-gray-500">We may link Submissions or parts of Submissions to other material, including material submitted by other users or created by us or third parties. We may use Submissions for our internal business purposes. You acknowledge that we may commercially benefit from use of your Submissions.</p>
+
+                  <p class="text-gray-500">Each time you make a Submission, you represent and warrant as follows:
+                  <p class="text-gray-500">1. You own your Submission or have the right to submit it, and in submitting it you will not be infringing any rights of any third party, including intellectual property rights (such as copyright or trademark), privacy or publicity rights, rights of confidentiality, or rights under contract.  2. Your Submission is not illegal, obscene, defamatory, threatening, pornographic, harassing, hateful, racially or ethnically offensive, and does not encourage conduct that would be considered a criminal offense, and does not give rise to civil liability, violate any law, or is otherwise deemed inappropriate.  3. Your Submission does not advertise any product or service or solicit any business.  4. Your Submission does not identify any individual (including by way of name, address, picture, or video) under the age of 18 and if your Submission identifies any individual over the age of 18, you have that person’s consent to being identified in exactly that way in your Submission.  5. You are not impersonating any other person.  6. You will not collect usernames and/or email addresses of others for the purpose of sending unsolicited email.  7. You will not engage in criminal or tortious activity, including fraud, spamming, spimming, sending of viruses or other harmful files, copyright infringement, patent infringement, or theft of trade secrets or attempt to impersonate another user or person.  8. You will not engage in any automated use of the Site or Services, such as using scripts to alter our Content.  9. You will not, without authorization, access, tamper with, or use non-public areas of the Site or the Services, our computer systems, or the technical delivery systems of our service providers.  10. Except as necessary to maintain your own computer security by use of commercial-off-the-shelf anti-virus or anti-malware products, you will not attempt to probe, scan, or test the vulnerability of the Site or the Services or any other component of our system or network or breach any security or authentication measures.</p>
+                  <p class="text-gray-500">We are entitled to identify you to third parties who claim that their rights have been infringed by your Submission.</p>
+
+                  <p class="text-gray-500">Submissions are not confidential. You agree not to make any Submission in which you have any expectation of privacy. We do not claim any ownership rights in Submissions; however, by making a Submission you hereby grant us an irrevocable, perpetual, fully sub-licensable, non-exclusive, royalty-free, worldwide license to use, telecast, copy, perform, display, edit, distribute, reproduce, modify, adapt, and otherwise exploit the Submission, or any portion thereof, and any ideas, concepts, or know how contained therein, with or without attribution, and without the requirement of any permission from or payment to you or to any other person or entity, in any manner (including, without limitation, for commercial, publicity, trade, promotional, or advertising purposes) and in any and all media now known or hereafter devised, and to prepare derivative works of, or incorporate into other works, such Submission, and to grant and authorize sublicenses of the foregoing without any payment of money or any other form of consideration to you or to any third party. You represent and warrant that you own or otherwise control the rights to your Submission. You agree to indemnify us and our Affiliates (defined below in Section 9) for all claims arising from or in connection with any claims to any rights in your Submission or any damages arising from your Submission.</p>
+                  <p class="text-gray-500">We reserve the right, in our sole discretion, to refuse, remove, or edit any of your Submissions, or to restrict, suspend, or terminate your access to or use of all or any part of the Site or the Services, and we may do this with or without giving you any prior notice.</p>
+
+                  <p class="text-gray-500">B. Usage Rules</p>
+                  <p class="text-gray-500">1. Password and Account Security. You may create your own account on the Site or through the Services. In doing so, you must provide us with accurate and complete registration information and update us if this information changes. If you create an account, we will assign you, or allow you to select, a password. You must keep your password confidential, and you may not permit any other person to use your password or your account for any purpose. You will be responsible for all use of your password, including, without limitation, any use by any authorized or unauthorized third party. You must notify us immediately if you believe your password may have been used by any unauthorized person or entity. For security purposes, we recommend you change your password often. Under no circumstance should you respond to a request for your password. You must notify us immediately if you receive such a request. Without limiting our right to restrict, suspend, or terminate access to or use of the Site or Services for any reason, we reserve the right to suspend or terminate your use of the Site if we believe that your password is being used without permission or otherwise in a manner that may disrupt the Site.</p>
+
+                  <p class="text-gray-500">2. Prohibitions. You agree that you will not use the Site or Services to transmit communications that defame, abuse, harass, stalk, threaten, or otherwise violate the rights of any other person. You also agree that you will not use the Site or Services to transmit communications containing material that is unlawful, harassing, defamatory, abusive, indecent, threatening, harmful, vulgar, obscene, pornographic, or discriminatory. You will not use the Site or Services to commit fraud, engage in criminal activity, or interfere with the use of the Site or Services by others. We reserve the right, but are under no obligation, to review your communications and without notice terminate your access to and use of the Site or Services if we determine, based on our sole discretion, that you violated the foregoing user guidelines.</p>
+
+                  <p class="text-gray-500">3. Rights of Others.  In using the Sites and Services, you must respect the intellectual property and other rights of SunLink and others. Your unauthorized use of Content and/or IP may violate copyright, trademark, privacy, publicity, communications, and other laws, and any such use may result in your personal liability, including potential criminal liability. If you believe that your work has been infringed by means of an improper posting or distribution of it via the Site or Services, then please see Section 7 below.</p>
+               </section>
+
+               <section id="section5" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">5. THIRD PARTY SITES</h2>
+                  <p class="text-gray-500">This Site may contain links to or be accessed through links that are owned and operated by independent third parties to which these Terms do not apply. We provide links as a convenience and the inclusion of the link does not imply that SunLink endorses or accepts any responsibility for the content on those sites. SunLink is not responsible for content including but not limited to advertising claims, special offers, illustrations, names or endorsements on any other sites to which this Site may be linked to or from which this Site may be accessed. Further, SunLink is not, directly or indirectly, implying any approval, association, sponsorship, endorsement, or affiliation with the linked site, unless specifically stated therein. Your linking to any other off-site pages or other sites is at your own risk. We recommend that you review any terms of use statement and privacy policy before using any other linked site.</p>
+                 
+              </section>
+
+               <section id="section6" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">6. BILLING</h2>
+                  <p class="text-gray-500">All billing information provided by you must be truthful and accurate. YOU REPRESENT AND WARRANT THAT YOU HAVE THE LEGAL RIGHT TO USE ANY CREDIT CARD(S) OR OTHER PAYMENT METHOD(S) UTILIZED IN CONNECTION WITH ANY PAYMENTS. By submitting such information, you grant to SunLink the right to provide such information to third parties for purposes of facilitating the completion of payments initiated by you or on your behalf. Providing any false, untruthful, or inaccurate information constitutes a breach of these Terms for which we may terminate your license to use the Site or Services.</p>
+                 
+              </section>
+
+               <section id="section7" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">7. DIGITAL MILLENNIUM COPYRIGHT ACT NOTICE</h2>
+                  <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis metus accumsan, venenatis purus ut, eleifend nunc. Ut sit amet malesuada velit. Praesent nec vulputate ex, vel congue libero. Donec nulla quam, facilisis a sem a, venenatis tempor sem. In cursus risus nec leo pulvinar viverra. Vivamus malesuada, arcu in lobortis pretium, libero lacus pellentesque lacus, at sodales mauris mauris sed turpis. Duis congue rutrum arcu, sed pellentesque erat ultrices ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus ultrices, orci eget faucibus hendrerit, orci dolor congue ipsum, vel tincidunt nibh diam quis nulla. Donec pulvinar odio eu dignissim ultrices. Cras semper, ipsum sed ultrices semper, tortor nibh fermentum turpis, vel ultrices urna nulla et ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis metus accumsan, venenatis purus ut, 
+Vivamus luctus ut turpis a egestas. Nam ac purus purus. Donec sed lobortis tellus.</p>
+                  <p class="text-gray-500">Mauris ac est Cras ac libero eget leo ultrices auctor. Curabitur eu nisl gravida, convallis nibh eu, varius mauris. Nullam elementum orci at velit rhoncus ultricies. Morbi nulla magna, tincidunt eu eros sed, hendrerit suscipit nulla. Mauris fringilla dapibus ante et fringilla. Donec interdum condimentum risus. Mauris eget pharetra nunc. Sed consequat quam eget lacus faucibus, sit amet sagittis felis elementum.</p>
+                 
+              </section>
+
+               <section id="section8" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">8. disputes; Governing Law; Jurisdiction</h2>
+                  <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis metus accumsan, venenatis purus ut, eleifend nunc. Ut sit amet malesuada velit. Praesent nec vulputate ex, vel congue libero. Donec nulla quam, facilisis a sem a, venenatis tempor sem. In cursus risus nec leo pulvinar viverra. Vivamus malesuada, arcu in lobortis pretium, libero lacus pellentesque lacus, at sodales mauris mauris sed turpis. Duis congue rutrum arcu, sed pellentesque erat ultrices ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus ultrices, orci eget faucibus hendrerit, orci dolor congue ipsum, vel tincidunt nibh diam quis nulla. Donec pulvinar odio eu dignissim ultrices. Cras semper, ipsum sed ultrices semper, tortor nibh fermentum turpis, vel ultrices urna nulla et ipsum. Mauris ac est sed purus sagittis iaculis vel quis purus.</p>
+                  <p class="text-gray-500">Cras bibendum ipsum a suscipit elementum. Integer euismod eu ipsum sit amet tincidunt. Suspendisse sapien neque, vestibulum nec sodales et, consectetur a odio. Proin condimentum condimentum lectus, eu mattis dui bibendum ac. Etiam justo nunc, sodales sed velit vitae, molestie convallis ex. Nunc eu nunc semper, venenatis erat tincidunt, tempus nisi. Aliquam iaculis volutpat tellus eu vestibulum. Integer feugiat, massa vel mollis sollicitudin, mi ex commodo justo, quis vulputate neque metus sit amet tortor. Cras vel ligula at nibh tincidunt finibus nec non diam. Suspendisse potenti.</p>
+                  <p class="text-gray-500">Cras ac libero eget leo ultrices auctor. Curabitur eu nisl gravida, convallis nibh eu, varius mauris. Nullam elementum orci at velit rhoncus ultricies. Morbi nulla magna, tincidunt eu eros sed, hendrerit suscipit nulla. Mauris fringilla dapibus ante et fringilla. Donec interdum condimentum risus. Mauris eget pharetra nunc. Sed consequat quam eget lacus faucibus, sit amet sagittis felis elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus ut turpis a egestas. Nam ac purus purus. Donec sed lobortis tellus.</p>
+              </section>
+              
+               <section id="section9" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase" >9. Disclaimer and limitation of liability</h2>
+                 <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis metus accumsan, venenatis purus ut, eleifend nunc. Ut sit amet malesuada velit. Praesent nec vulputate ex, vel congue libero. Donec nulla quam, facilisis a sem a, venenatis tempor sem. In cursus risus nec leo pulvinar viverra. Vivamus malesuada, arcu in lobortis pretium, libero lacus pellentesque lacus, at sodales mauris mauris sed turpis. Duis congue rutrum arcu, sed pellentesque erat ultrices ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus ultrices, orci eget faucibus hendrerit, orci dolor congue ipsum, vel tincidunt nibh diam quis nulla. Donec pulvinar odio eu dignissim ultrices. Cras semper, ipsum sed ultrices semper, tortor nibh fermentum turpis, vel ultrices urna nulla et ipsum. Mauris ac est sed purus sagittis iaculis vel quis purus.</p>
+                  <p class="text-gray-500">Cras bibendum ipsum a suscipit elementum. Integer euismod eu ipsum sit amet tincidunt. Suspendisse sapien neque, vestibulum nec sodales et, consectetur a odio. Proin condimentum condimentum lectus, eu mattis dui bibendum ac. Etiam justo nunc, sodales sed velit vitae, molestie convallis ex. Nunc eu nunc semper, venenatis erat tincidunt, tempus nisi. Aliquam iaculis volutpat tellus eu vestibulum. Integer feugiat, massa vel mollis sollicitudin, mi ex commodo justo, quis vulputate neque metus sit amet tortor. Cras vel ligula at nibh tincidunt finibus nec non diam. Suspendisse potenti.</p>
+                  <p class="text-gray-500">Cras ac libero eget leo ultrices auctor. Curabitur eu nisl gravida, convallis nibh eu, varius mauris. Nullam elementum orci at velit rhoncus ultricies. Morbi nulla magna, tincidunt eu eros sed, hendrerit suscipit nulla. Mauris fringilla dapibus ante et fringilla. Donec interdum condimentum risus. Mauris eget pharetra nunc. Sed consequat quam eget lacus faucibus, sit amet sagittis felis elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus ut turpis a egestas. Nam ac purus purus. Donec sed lobortis tellus.</p>
+              </section>
+
+             
+
+               <section id="section10" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase" >10. Indemnity</h2>
+                  <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis metus accumsan, venenatis purus ut, eleifend nunc. Ut sit amet malesuada velit. Praesent nec vulputate ex, vel congue libero. Donec nulla quam, facilisis a sem a, venenatis tempor sem. In cursus risus nec leo pulvinar viverra. Vivamus malesuada, arcu in lobortis pretium, libero lacus pellentesque lacus, at sodales mauris mauris sed turpis. Duis congue rutrum arcu, sed pellentesque erat ultrices ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; </p>
+              </section>
+
+                <section id="section11" class="py-6 bg-white space-y-6 border-b">
+                     <h2 class="text-2xl font-bold mb-4 uppercase">11. Termination</h2>
+                     <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis metus accumsan, venenatis purus ut, eleifend nunc. Ut sit amet malesuada velit. Praesent nec vulputate ex, vel congue libero. Donec nulla quam, facilisis a sem a, venenatis tempor sem. In cursus risus nec leo pulvinar viverra. Vivamus malesuada, arcu in lobortis pretium, libero lacus pellentesque lacus, at sodales mauris mauris sed turpis. Duis congue rutrum arcu, sed pellentesque erat ultrices ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus ultrices, orci eget faucibus hendrerit, orci dolor congue ipsum, vel tincidunt nibh diam quis nulla. Donec pulvinar odio eu dignissim ultrices. Cras semper, ipsum sed ultrices semper, tortor nibh fermentum turpis, vel ultrices urna nulla et ipsum. Mauris ac est sed purus sagittis iaculis vel quis purus.</p>
+                     <p class="text-gray-500">Cras bibendum ipsum a suscipit elementum. Integer euismod eu ipsum sit amet tincidunt. Suspendisse sapien neque, vestibulum nec sodales et, consectetur a odio. Proin condimentum condimentum lectus, eu mattis dui bibendum ac. Etiam justo nunc, sodales sed velit vitae, molestie convallis ex. Nunc eu nunc semper, venenatis erat tincidunt, tempus nisi. Aliquam iaculis volutpat tellus eu vestibulum. Integer feugiat, massa vel mollis sollicitudin, mi ex commodo justo, quis vulputate neque metus sit amet tortor. Cras vel ligula at nibh tincidunt finibus nec non diam. Suspendisse potenti.</p>
+                </section>
+
+               <section id="section12" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">12. Notices, Questions, and Customer Service </h2>
+                     <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis metus accumsan, venenatis purus ut, eleifend nunc. Ut sit amet malesuada velit. Praesent nec vulputate ex, vel congue libero. Donec nulla quam, facilisis a sem a, venenatis tempor sem. In cursus risus nec leo pulvinar viverra. Vivamus malesuada, arcu in lobortis pretium, libero lacus pellentesque lacus, at sodales mauris mauris sed turpis. Duis congue rutrum arcu, sed pellentesque erat ultrices ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus ultrices, orci eget faucibus hendrerit, orci dolor congue ipsum, vel tincidunt nibh diam quis nulla. Donec pulvinar odio eu dignissim ultrices. Cras semper, ipsum sed ultrices semper, tortor nibh fermentum turpis, vel ultrices urna nulla et ipsum. Mauris ac est sed purus sagittis iaculis vel quis purus.</p>
+                     <p class="text-gray-500">Cras bibendum ipsum a suscipit elementum. Integer euismod eu ipsum sit amet tincidunt. Suspendisse sapien neque, vestibulum nec sodales et, consectetur a odio. Proin condimentum condimentum lectus, eu mattis dui bibendum ac. Etiam justo nunc, sodales sed velit vitae, molestie convallis ex. Nunc eu nunc semper, venenatis erat tincidunt, tempus nisi. Aliquam iaculis volutpat tellus eu vestibulum. Integer feugiat, massa vel mollis sollicitudin, mi ex commodo justo, quis vulputate neque metus sit amet tortor. Cras vel ligula at nibh tincidunt finibus nec non diam. Suspendisse potenti.</p>
+                     <p class="text-gray-500">Cras ac libero eget leo ultrices auctor. Curabitur eu nisl gravida, convallis nibh eu, varius mauris. Nullam elementum orci at velit rhoncus ultricies. Morbi nulla magna, tincidunt eu eros sed, hendrerit suscipit nulla. Mauris fringilla dapibus ante et fringilla. Donec interdum condimentum risus. Mauris eget pharetra nunc. Sed consequat quam eget lacus faucibus, sit amet sagittis felis elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus ut turpis a egestas. Nam ac purus purus. Donec sed lobortis tellus.</p>
+             
+              </section>
+
+               <section id="section13" class="py-6 bg-white space-y-6 border-b">
+                  <h2 class="text-2xl font-bold mb-4 uppercase">13. Miscellaneous</h2>
+                      <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis metus accumsan, venenatis purus ut, eleifend nunc. Ut sit amet malesuada velit. Praesent nec vulputate ex, vel congue libero. Donec nulla quam, facilisis a sem a, venenatis tempor sem. In cursus risus nec leo pulvinar viverra. Vivamus malesuada, arcu in lobortis pretium, libero lacus pellentesque lacus, at sodales mauris mauris sed turpis. Duis congue rutrum arcu, sed pellentesque erat ultrices ac. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus ultrices, orci eget faucibus hendrerit, orci dolor congue ipsum, vel tincidunt nibh diam quis nulla. Donec pulvinar odio eu dignissim ultrices. Cras semper, ipsum sed ultrices semper, tortor nibh fermentum turpis, vel ultrices urna nulla et ipsum. Mauris ac est sed purus sagittis iaculis vel quis purus.</p>
+                     <p class="text-gray-500">Cras bibendum ipsum a suscipit elementum. Integer euismod eu ipsum sit amet tincidunt. Suspendisse sapien neque, vestibulum nec sodales et, consectetur a odio. Proin condimentum condimentum lectus, eu mattis dui bibendum ac. Etiam justo nunc, sodales sed velit vitae, molestie convallis ex. Nunc eu nunc semper, venenatis erat tincidunt, tempus nisi. Aliquam iaculis volutpat tellus eu vestibulum. Integer feugiat, massa vel mollis sollicitudin, mi ex commodo justo, quis vulputate neque metus sit amet tortor. Cras vel ligula at nibh tincidunt finibus nec non diam. Suspendisse potenti.</p>
+                      <p class="text-gray-500">Cras ac libero eget leo ultrices auctor. Curabitur eu nisl gravida, convallis nibh eu, varius mauris. Nullam elementum orci at velit rhoncus ultricies. Morbi nulla magna, tincidunt eu eros sed, hendrerit suscipit nulla. Mauris fringilla dapibus ante et fringilla. Donec interdum condimentum risus. Mauris eget pharetra nunc. Sed consequat quam eget lacus faucibus, sit amet sagittis felis elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus ut turpis a egestas. Nam ac purus purus. Donec sed lobortis tellus.</p>
+              </section>
+            </div>
+         </div>
+</section>
+
+
+ <!-- footer start here -->
+      <footer class="bg-gray-900 text-gray-300 px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10 lg:px-14 lg:py-12">
+         <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-[0.6fr_1.5fr_0.4fr] gap-8">
+               <!-- Column 1: Logo & About -->
+               <div>
+                  <img src="assets/images/sunlink-logo.svg" alt="logo" width="150"/>
+                  <p class="text-sm leading-relaxed mt-5">
+                     SunLink revolutionizes the solar industry by putting the power back in your hands. Our innovative platform eliminates high-pressure sales tactics and inflated commissions, allowing homeowners to design, customize, and purchase their solar system entirely online – at a fraction of traditional costs.
+                  </p>
+                  <div class="socialicons mt-6">
+                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                     <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                     <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                     <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                  </div>
+               </div>
+               <!-- Column 2: Quick Links -->
+               <div class="flex justify-center items-top grid grid-cols-1 lg:grid-cols-[1fr_0.8fr_1fr_1fr] md:grid-cols-[1fr_1fr] ">
+                  <div class="hidden lg:block"></div>
+                  <div>
+                     <h4 class="text-sm text-gray-300 mb-4">COMPANY</h4>
+                     <ul class="space-y-2 text-sm font-mono text-white">
+                        <li><a href="#" class="hover:text-orange transition">ABOUT</a></li>
+                        <li><a href="#" class="hover:text-orange transition">HOW IT WORKS</a></li>
+                        <li><a href="#" class="hover:text-orange transition">PRICING</a></li>
+                        <li><a href="#" class="hover:text-orange transition">FAQ</a></li>
+                     </ul>
+                  </div>
+                  <div>
+                     <h4 class="text-sm text-gray-300 mb-4">RESOURCES</h4>
+                     <ul class="space-y-2 text-sm font-mono text-white">
+                        <li><a href="#" class="hover:text-orange transition">TESTIMONIALS</a></li>
+                        <li><a href="#" class="hover:text-orange transition">PRIVACY POLICY</a></li>
+                        <li><a href="#" class="hover:text-orange transition">TERMS OF SERVICE</a></li>
+                        <li><a href="#" class="hover:text-orange transition">REFERRAL PROGRAM</a></li>
+                     </ul>
+                  </div>
+                  <div class="hidden lg:block"></div>
+               </div>
+               <!-- Column 4: Contact Info -->
+               <div class="flex justify-end items-start">
+                  <a href="#" class=" bg-orange hover:bg-orange  py-4 px-5 me-2 mb-2 text-sm font-normal text-white uppercase ">try sunlink now</a>
+               </div>
+            </div>
+            <div class="mt-10 text-center text-sm text-white border-t border-gray-700 pt-6 font-mono uppercase">
+               &copy; 2025 sunlink. all rights reserved. <br><br>
+               Actual savings will vary depending on system production, geography, weather, shade, electricity usage, utility rates, rate increases, and financing options. Savings estimated here assumes utility rate increases annually and stable customer utility usage rates. Contact us to receive a detailed proposal based on your home and energy usage.
+               </bar>
+            </div>
+         </div>
+      </footer>
+      <!-- footer end here -->
+      </div>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <!-- jQuery -->
+      <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+      <!-- Owl Carousel JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $("#owl-carousel-testimonials").owlCarousel({
+               loop: true,
+               margin: 20,
+               nav: false,      // Optional: hide arrows
+             dots: true,  
+               autoplay: true,
+               autoplayTimeout: 3000,
+               autoplayHoverPause: true,
+               
+               responsive: {
+                 0: { items: 1 },
+                 768: { items: 2 },
+                 1024: { items: 3 },
+                 1200: { items: 4 }
+               },
+               onChanged: function(event) {
+                 const items = $('.owl-item');
+                 items.removeClass('current');
+                 items.eq(event.item.index).addClass('current');
+               }
+         });
+         
+         
+         
+         
+         
+         
+         const nav = document.getElementById("mainNav");
+         
+         window.addEventListener("scroll", () => {
+         if (window.scrollY > 200) {
+         nav.classList.add("nav-scrolled");
+         } else {
+         nav.classList.remove("nav-scrolled");
+         }
+         });
+         
+         const counters = document.querySelectorAll('.counter');
+         const options = { threshold: 0.6 };
+         
+         const animateCount = (el, target, suffix = '', prefix = '') => {
+         let start = 0;
+         const duration = 2000;
+         const startTime = performance.now();
+         
+         const step = (currentTime) => {
+           const elapsed = currentTime - startTime;
+           const progress = Math.min(elapsed / duration, 1);
+           const value = Math.floor(progress * target);
+           el.innerText = `${prefix}${value}${suffix}`;
+           if (progress < 1) {
+             requestAnimationFrame(step);
+           } else {
+             el.innerText = `${prefix}${target}${suffix}`;
+           }
+         };
+         
+         requestAnimationFrame(step);
+         };
+         
+         
+         
+         const observer = new IntersectionObserver((entries, observer) => {
+         entries.forEach(entry => {
+           if (entry.isIntersecting) {
+             const el = entry.target;
+             const target = parseFloat(el.getAttribute('data-target'));
+             const suffix = el.getAttribute('data-suffix') || '';
+             const prefix = el.getAttribute('data-prefix') || '';
+             animateCount(el, target, suffix, prefix);
+             observer.unobserve(el);
+           }
+         });
+         }, options);
+         
+         counters.forEach(counter => {
+         observer.observe(counter);
+         });
+         
+         
+         const progressLine = document.getElementById('progress-line');
+         const timeline = progressLine.parentElement;
+         
+         window.addEventListener('scroll', () => {
+         const rect = timeline.getBoundingClientRect();
+         const viewportHeight = window.innerHeight;
+         
+         if (rect.top < viewportHeight && rect.bottom > 0) {
+           // Calculate visible height percentage
+           const totalHeight = rect.height;
+           const scrollTop = Math.min(viewportHeight - rect.top, totalHeight);
+           const heightPercent = Math.max(0, Math.min(scrollTop / totalHeight, 1));
+           progressLine.style.height = `${heightPercent * totalHeight}px`;
+         }
+         });
+         
+         
+         });
+         
+         $(document).ready(function(){
+           $('#owl-carousel-logos').owlCarousel({
+             loop: true,
+             margin: 20,
+             autoplay: true,
+             autoplayTimeout: 2000,
+             dots: false,
+             autoplayHoverPause: true,
+             responsive: {
+               0: {
+                 items: 2
+               },
+               640: {
+                 items: 3
+               },
+               1024: {
+                 items: 6
+               }
+             }
+           });
+         });
+         
+         
+         const observer = new IntersectionObserver(entries => {
+           entries.forEach(entry => {
+             if (entry.isIntersecting) {
+               entry.target.classList.add('visible');
+             }
+           });
+         }, {
+           threshold: 0.1
+         });
+         
+         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+
+   
+  $(document).ready(function () {
+    const navLinks = $("#menu1 a");
+
+    // Handle click: scroll & active class
+    navLinks.on("click", function (e) {
+      e.preventDefault();
+      const target = $(this).attr("href");
+
+      // Remove and set active class
+      navLinks.removeClass("active ");
+      $(this).addClass("active ");
+
+      // Smooth scroll
+      $("html, body").animate({
+        scrollTop: $(target).offset().top - 100 // adjust offset if needed
+      }, 500);
+    });
+  });
+      </script>
+   </body>
+</html>

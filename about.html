@@ -1,0 +1,920 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="dist/output.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+      <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="bg-white">
+        
+         <header class="inset-x-0 top-0 z-50" x-data="{ mobileOpen: false }">
+  <!-- Top Bar -->
+  <div class="header-top hidden lg:flex flex-wrap items-center justify-between p-2 lg:px-8 text-sm text-gray-700 bg-white">
+     <div class="flex items-center space-x-2"><img src="assets/images/location.svg" class="pe-1" /> Enter your location</div>
+    <div class="flex items-center space-x-2 text-center">Join 1000+ homeowners who’ve gone solar <img src="assets/images/ht-arrow.svg" class="ps-1 mt-1" /></div>
+    <div class="flex items-center space-x-2"><img src="assets/images/call_svgrepo.com.svg" class="pe-1" /> Call us at +1 (801) 897-4270</div>
+  </div>
+
+  <!-- Main Nav -->
+  <nav id="mainNav" class="absolute w-full flex items-center justify-between p-6 lg:px-8  text-white" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="index.html" class="-m-1.5 p-1.5">
+        <img class="h-8 w-auto" src="assets/images/sunlink-logo.svg" alt="Sunlink Logo" />
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="flex lg:hidden">
+      <button @click="mobileOpen = true" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
+        <span class="sr-only">Open main menu</span>
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Nav -->
+    <div class="hidden lg:flex align-center xl:gap-x-12  lg:gap-x-2 uppercase">
+      <a href="about.html" class="text-base font-normal text-white p-2">About</a>
+      <!-- Products Dropdown -->
+      <div class="group relative pt-2">
+        <a href="products.html" class="text-base font-normal hover:text-blue-400 transition p-2">Products <i class="fas fa-chevron-down"></i></a>
+        <div class="absolute left-0 mt-2 hidden w-64 bg-white text-black rounded shadow-lg group-hover:block z-50">
+          <a href="product-solar.html" class="block px-4 py-2 hover:bg-blue-100">Solar Savings Plan</a>
+          <a href="product-solar-storage.html" class="block px-4 py-2 hover:bg-blue-100">Solar and Storage Plans</a>
+          <a href="product-storage.html" class="block px-4 py-2 hover:bg-blue-100">Storage Only Plans</a>
+        </div>
+      </div>
+      <a href="#" class="text-base font-normal text-white p-2">Installation</a>
+      <a href="financing.html" class="text-base font-normal text-white p-2">Financing</a>
+     <div class="group relative pt-2">
+        <a href="#" class="text-base font-normal hover:text-blue-400 transition p-2">Resources <i class="fas fa-chevron-down"></i></a>
+        <div class="absolute left-0 mt-2 hidden w-64 bg-white text-black rounded shadow-lg group-hover:block z-50">
+          <a href="privacy-policy.html" class="block px-4 py-2 hover:bg-blue-100">Privacy Policy</a>
+          <a href="terms-of-service.html" class="block px-4 py-2 hover:bg-blue-100">Terms of use</a>
+         
+        </div>
+      </div>
+        
+    
+      <a href="#" class="text-base font-normal text-white p-2">Contact</a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="signin.html" class="text-base font-normal text-white uppercase me-3 mt-1">Log in</a>
+      <a href="#" class="bg-orange hover:bg-orange   py-2 px-4 text-sm font-normal text-white uppercase">Try Sunlink Now</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" x-show="mobileOpen" @click="mobileOpen = false" x-transition.opacity></div>
+
+  <!-- Mobile Slide-In Menu -->
+<!-- Mobile Slide-In Menu -->
+<div 
+  class="fixed inset-y-0 right-0 z-50 w-4/5 max-w-sm overflow-y-auto bg-white p-6 transform transition-transform duration-300"
+  x-show="mobileOpen"
+  x-transition:enter="translate-x-full"
+  x-transition:enter-start="translate-x-full"
+  x-transition:enter-end="translate-x-0"
+  x-transition:leave="translate-x-0"
+  x-transition:leave-end="translate-x-full"
+  x-data="{ openProducts: false, openResources: false }"
+  style="display: none;"
+>
+  <div class="flex items-center justify-between mb-6">
+    <img src="assets/images/sunlink-logo.svg" class="h-8" alt="logo" />
+    <button @click="mobileOpen = false" class="-m-2.5 p-2.5">
+      <svg class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+
+    <nav class="space-y-4">
+      <a href="about.html" class="block text-base font-medium text-gray-900">About</a>
+      
+      <div>
+      <button @click="openProducts = !openProducts" class="flex justify-between items-center w-full text-base font-medium text-gray-900">
+        Products
+        <svg :class="{'rotate-180': openProducts}" class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div x-show="openProducts" x-collapse class="pl-4 mt-2 space-y-2">
+        <a href="product-solar.html" class="block px-4 py-2 hover:bg-blue-100">Solar Savings Plan</a>
+          <a href="product-solar-storage.html" class="block px-4 py-2 hover:bg-blue-100">Solar and Storage Plans</a>
+          <a href="product-storage.html" class="block px-4 py-2 hover:bg-blue-100">Storage Only Plans</a>
+      </div>
+    </div>
+      <a href="#" class="block text-base font-medium text-gray-900">Installation</a>
+      <a href="financing.html" class="block text-base font-medium text-gray-900">Financing</a>
+    <!-- Resources Dropdown -->
+    <div>
+      <button @click="openResources = !openResources" class="flex justify-between items-center w-full text-base font-medium text-gray-900">
+        Resources
+        <svg :class="{'rotate-180': openResources}" class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div x-show="openResources" x-collapse class="pl-4 mt-2 space-y-2">
+         <a href="privacy-policy.html" class="block px-4 py-2 hover:bg-blue-100">Privacy Policy</a>
+          <a href="terms-of-service.html" class="block px-4 py-2 hover:bg-blue-100">Terms of use</a>
+      </div>
+    </div>
+      <a href="#" class="block text-base font-medium text-gray-900">Contact</a>
+      <a href="signin.html" class="block text-base font-medium text-gray-900">Log in</a>
+      <a href="#" class="block bg-orange-500 text-white text-center py-2 mt-2 rounded font-semibold">Try Sunlink Now</a>
+    </nav>
+  </div>
+</header>
+         
+         <div class="hero-banner about relative isolate px-6 pt-14 lg:px-8">
+            <div class="mx-auto max-w-3xl py-32 sm:py-48 lg:py-56 relative">
+               <div class="text-center">
+                  <div class="text-xs mx-auto mb-5  uppercase border border-solid w-max py-2  px-6 rounded-md text-white border-white overlayblur">
+                     <span class="circlebx bg-white"></span> Why Sunlink
+                  </div>
+                  <h1 class="text-balance text-4xl md:text-4xl lg:text-5xl xl:text-[80px] font-normal tracking-tight text-white ">Going solar has never been easier with SunLink</h1>
+                  <div class="mt-10 flex items-center justify-center gap-x-6">
+                     <a href="#" class="uppercase  bg-white  py-4 px-5 me-2 mb-2 text-sm font-semibold uppercase font-mono ">try sunlink now</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="bg-white py-24 sm:py-24">
+            <div class="mx-auto w-full px-6 lg:px-8">
+               <div class="text-center mb-6 font-mono">
+                  <h2 class="text-dark-grey">MANUFACTURERS WE WORK WITH</h2>
+               </div>
+               <div class="w-full mx-auto">
+                  <div id="owl-carousel-logos" class="owl-carousel logos owl-theme">
+                     <div class="item bg-white px-2 flex items-center justify-center">
+                        <img src="assets/images/logos/Tesla logo.svg" class="tesla" />
+                     </div>
+                     <div class="item bg-white px-2 flex items-center justify-center">
+                        <img src="assets/images/logos/enphase.svg" class="enphase" />
+                     </div>
+                     <div class="item bg-white px-2 flex items-center justify-center">
+                        <img src="assets/images/logos/jinko.svg" class="jinko" />
+                     </div>
+                     <div class="item bg-white px-2 flex items-center justify-center">
+                        <img src="assets/images/logos/franklin-wh.svg" class="franklin" />
+                     </div>
+                     <div class="item bg-white px-2 flex items-center justify-center">
+                        <img src="assets/images/logos/eg4.svg" class="eg4" />
+                     </div>
+                     <div class="item bg-white px-2 flex items-center justify-center">
+                        <img src="assets/images/logos/qcell.svg" class="qcell" />
+                     </div>
+                     <div class="item bg-white px-2 flex items-center justify-center">
+                        <img src="assets/images/logos/generac.svg" class="generac" />
+                     </div>
+                     <div class="item bg-white px-2 flex items-center justify-center">
+                        <img src="assets/images/logos/sol.svg" class="sol" />
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <section class="w-full mx-auto px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <!-- Left Content -->
+            <div>
+              <div class="text-xs  mb-5  uppercase border border-solid w-max py-2  px-6 rounded-md text-orange border-orange"><span class="circlebx bg-orange"></span> Our story</div>
+               <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+                  The solar experience<br />
+                  needed a reset.<br />
+                  <span class="text-gray-900">SunLink is bringing it.</span>
+               </h1>
+               <p class="text-gray-600 text-[20px] leading-relaxed max-w-2xl">
+                  With an open, transparent, and pressure-free buying process, SunLink empowers homeowners to take control. No overpriced systems, no pushy commissions — just honest, fair solar solutions that connect you directly with vetted installers you can trust.
+               </p>
+            </div>
+            <!-- Right Image -->
+            <div class="flex justify-center">
+               <img src="assets/images/our-story.png" alt="Family Solar Experience" class="rounded-xl w-full h-auto  object-cover shadow-md" />
+            </div>
+         </section>
+         <section class="w-full mx-auto px-6 lg:px-8 bg-gray-900 text-gray-400 flex  py-8">
+            <div class="max-w-3xl space-y-6 py-8">
+               <div class="text-xs  mb-5  uppercase border border-solid w-max py-2  px-6 rounded-md text-white border-white overlayblur">
+                  <span class="circlebx bg-white"></span> OUR MISSION
+               </div>
+               <h2 class="text-[50px] font-semibold fade-in">Our mission is simple:</h2>
+               <p class="text-[50px] fade-in">
+                  <strong class="font-medium">To make solar energy accessible to every homeowner without</strong> the stress,
+                  uncertainty, and inflated costs that come with traditional solar sales.
+               </p>
+               <p class="text-[50px] fade-in">
+                  We believe that choosing solar should be straightforward—a smart financial decision that saves you money from day one.
+               </p>
+               <p class="text-[50px] fade-in">
+                  By removing the barriers that have made solar feel complicated and expensive, we're creating a new standard for how homeowners experience solar energy.
+               </p>
+            </div>
+         </section>
+         <section class="overflow-hidden bg-white py-32 sm:py-48 lg:py-56 bg-traditionalsolar flex relative">
+            <div class="w-1/2"></div> 
+            <div class="w-1/2 relative">
+               <div class="text-xs mb-5  uppercase border border-solid w-max py-2  px-6 rounded-md text-white border-white overlayblur">
+                    <span class="circlebx bg-white"></span> How we’re different
+                </div>
+                <h2 class="mt-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal tracking-tight text-pretty text-white ">Traditional Solar <br/>vs. SunLink</h2>
+                <div class="flex py-8">
+                    <div class="w-1/2  pe-6">
+                        <div class="bg-white/40 backdrop-blur-md rounded-xl p-6 text-left text-white space-y-4">
+                          <div class="flex items-center space-x-3 text-white text-lg font-semibold">
+                              <img src="assets/images/traditional.svg" alt="traditional">
+                              
+                          </div>
+                          <h3 class="text-3xl ">Traditional Solar</h3>
+                          <ul class="listcross pl-5 space-y-2 text-[20px]">
+                              <li>High-pressure sales tactics</li>
+                              <li>Inflated prices to cover sales commissions</li>
+                              <li>Limited installer options</li>
+                              <li>Pushy follow-up calls</li>
+                              <li>Unknown contractor quality</li>
+                          </ul>
+                        </div>
+
+                    </div> 
+                    <div class="w-1/2 pe-6 relative">
+                       <div class="absolute badge text-white">Modern solar solutions</div>
+                        <div class="bg-orange-500/50 rounded-xl p-6 text-left text-white space-y-4">
+                          <div class="flex items-center space-x-3 text-white text-lg font-semibold">
+                                <img src="assets/images/linksun.svg" alt="traditional">
+                             
+                          </div>
+                           <h3 class="text-3xl ">SunLink</h3>
+                          <ul class="listplus pl-5 space-y-2 text-[20px]">
+                              <li>Get your solar online</li>
+                              <li>No sales commissions</li>
+                              <li>Carefully vetted installer network</li>
+                              <li>No pressure, just transparency</li>
+                              <li>Peace of mind from start to finish</li>
+                          </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div> 
+            
+         </section>
+         <section class=" pb-24 pt-20">
+            <div class="mx-auto w-full px-6 ">
+               <div class="text-xs mx-auto mb-5  uppercase border border-solid w-max py-2  px-6 rounded-md text-orange border-orange"><span class="circlebx bg-orange"></span> Deploy faster</div>
+               <h2 class="mx-auto mt-2 max-w-xl text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center  font-semibold tracking-tight text-balance text-gray-950">Expert installations by certified experts</h2>
+               <p class="mx-auto text-center  max-w-lg mt-6 text-lg/8 text-gray-700">Our network of certified installers ensures your solar system is set up correctly, safely, and efficiently—maximizing your energy production from day one.</p>
+               <div class="max-w-[1300px] mx-auto mt-10 grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-4 md:grid-cols-2">
+                  <div class="mx-auto flex  flex-col gap-y-3 border border-solid rounded-2xl lightgrey"">
+                     <div class="px-8 pt-8 pb-8 sm:px-6 sm:pt-10 ">
+                        <img class="icon-img" src="assets/images/certified.svg" alt="certified"/>
+                        <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">100+ vetted installation partners across the nation</h4>
+                        <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">Our network consists of certified solar professionals who have been carefully selected and verified through our rigorous vetting process. Unlike fly-by-night companies that disappear after installation, our partners are established businesses with proven track records, proper licensing, and years of experience in residential solar installations. </p>
+                     </div>
+                  </div>
+                  <div class="mx-auto flex  flex-col gap-y-3 border border-solid rounded-2xl lightgrey"">
+                     <div class="px-8 pt-8 pb-8 sm:px-6 sm:pt-10 ">
+                        <img class="icon-img" src="assets/images/headset.svg" alt="headset"/>
+                        <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">25-year warranty that outlasts competition</h4>
+                        <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">Your solar investment is protected by industry-leading warranty coverage that includes both equipment and workmanship guarantees. Our warranty covers panel performance degradation, inverter functionality, and installation workmanship, ensuring your system performs optimally for a quarter-century.</p>
+                     </div>
+                  </div>
+                  <div class="mx-auto flex flex-col gap-y-3 border border-solid rounded-2xl lightgrey"">
+                     <div class="px-8 pt-8 pb-8 sm:px-6 sm:pt-10 ">
+                        <img class="icon-img" src="assets/images/quicksetup.svg" alt="quicksetup"/>
+                        <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Quick setup from design to power generation</h4>
+                        <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">Once you've designed your system online and completed financing, our verified partners handle all permitting, utility interconnection, and scheduling efficiently. No waiting months for sales appointments or lengthy approval processes—just fast, professional installation that gets your system generating clean energy quickly. </p>
+                     </div>
+                  </div>
+                  <div class="mx-auto flex  flex-col gap-y-3 border border-solid rounded-2xl lightgrey"">
+                     <div class="px-8 pt-8 pb-8 sm:px-6 sm:pt-10 ">
+                        <img class="icon-img" src="assets/images/payment-card.svg" alt="payment-card"/>
+                        <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Go solar with 0% down payment and flexible terms</h4>
+                        <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">Build and secure your solar investment without any upfront costs through our partnership with leading solar financing providers. Our 0% down financing options make solar accessible to homeowners regardless of their current cash flow situation. </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <div class="overflow-hidden bg-gray-900 py-24 sm:py-32">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+               <div class="text-xs mx-auto mb-5  uppercase border border-solid w-max py-2  px-6 rounded-md text-white border-white overlayblur">
+                  <span class="circlebx bg-white"></span> How it works
+               </div>
+               <h2 class="mt-2 text-center max-w-xl mx-auto text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal tracking-tight text-pretty text-white ">You’re in control from start to finish</h2>
+               <p class="mt-6 text-lg/8 max-w-lg mx-auto text-center  text-gray-300">Design your perfect solar system in minutes.</p>
+               <div class="mx-auto  m-auto">
+                  <div class="lg:max-w-3xl m-auto">
+                     <div class="relative">
+                        <!-- This is the animated vertical line -->
+                        <div id="progress-line" class="absolute left-[10px] top-0 w-px bg-white z-0 transition-all duration-300" style="height: 0;"></div>
+                        <dl class="relative mt-10 max-w-xl sm:max-w-full space-y-14 text-base/7 text-gray-400 lg:max-w-none pl-8 ">
+                           <!-- Timeline steps -->
+                           <div class="relative pl-8">
+                              <dt class="relative font-normal text-2xl text-white">
+                                 <img src="assets/images/Overlay-circle.svg" alt="circle" class="absolute -left-9 top-1 size-5" />
+                                 Enter your address
+                              </dt>
+                              <dd class="text-gray-300 mt-4">Simply input your home address and our advanced satellite mapping technology instantly analyzes your roof's solar potential. We calculate available roof space, orientation, shading factors, and local sun exposure to determine your home's exact energy generation capacity.</dd>
+                           </div>
+                           <!-- Repeat other steps similarly -->
+                        </dl>
+                        <dl class="relative mt-10 max-w-xl sm:max-w-full space-y-14 text-base/7 text-gray-400 lg:max-w-none pl-8">
+                           <!-- Timeline steps -->
+                           <div class="relative pl-8">
+                              <dt class="relative font-normal text-2xl text-white">
+                                 <img src="assets/images/Overlay-circle.svg" alt="circle" class="absolute -left-9 top-1 size-5" />
+                                 Choose Your Equipment
+                              </dt>
+                              <dd class="text-gray-300 mt-4">    Browse and select from premium solar panels, inverters, and mounting systems from top manufacturers. Compare specifications, warranties, and efficiency ratings to build your perfect system. See real-time pricing updates as you customize your equipment selection—no markups or hidden fees.</dd>
+                           </div>
+                           <!-- Repeat other steps similarly -->
+                        </dl>
+                        <dl class="relative mt-10 max-w-xl sm:max-w-full space-y-14 text-base/7 text-gray-400 lg:max-w-none pl-8">
+                           <!-- Timeline steps -->
+                           <div class="relative pl-8">
+                              <dt class="relative font-normal text-2xl text-white">
+                                 <img src="assets/images/Overlay-circle.svg" alt="circle" class="absolute -left-9 top-1 size-5" />
+                                 Design Solar Layout on Your Home 
+                              </dt>
+                              <dd class="text-gray-300 mt-4">Use our interactive design tool to place panels exactly where you want them on your roof. Drag and drop panels to optimize placement, avoid obstacles like vents or chimneys, and see instant energy production estimates. Your custom layout is designed by you, for your specific needs and preferences.</dd>
+                           </div>
+                           <!-- Repeat other steps similarly -->
+                        </dl>
+                        <dl class="relative mt-10 max-w-xl sm:max-w-full space-y-14 text-base/7 text-gray-400 lg:max-w-none pl-8 ">
+                           <!-- Timeline steps -->
+                           <div class="relative pl-8">
+                              <dt class="relative font-normal text-2xl text-white">
+                                 <img src="assets/images/Overlay-circle.svg" alt="circle" class="absolute -left-9 top-1 size-5" />
+                                 Get Installed by Verified SunLink Install Partners
+                              </dt>
+                              <dd class="text-gray-300 mt-4">Once your design is complete and contracts are signed, we connect you with a pre-vetted, licensed installer in your area. Our verified partners handle all permits, utility coordination, and professional installation. Most systems are installed and activated within one day, getting you up and running quickly.</dd>
+                           </div>
+                           <!-- Repeat other steps similarly -->
+                        </dl>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <section class=" py-24 sm:py-32">
+            <div class="mx-auto w-full px-6 ">
+               <div class="text-xs mx-auto mb-5  uppercase border border-solid w-max py-2  px-6 rounded-md text-orange border-orange"><span class="circlebx bg-orange"></span> Testimonials</div>
+               <h2 class="mx-auto mt-2 max-w-3xl text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center font-semibold tracking-tight text-balance text-gray-950">They took control.
+                  Here’s what happened. 
+               </h2>
+               <p class="mx-auto text-center  max-w-3xl  mt-6 text-lg/8 text-gray-700">1000+ homeowners are already enjoying the benefits of Sunlink.</p>
+               <div class="xl:container mx-auto mt-10 relative  w-full">
+                  <div class="w-full relative ">
+                     <div id="owl-carousel-testimonials" class="owl-carousel">
+                        <!-- Slide 1 -->
+                        <div class=" rounded-xl lightgrey px-8 pt-8 pb-8 sm:px-6 sm:pt-10 h-[500px]">
+                           <div class="flex items-center  mb-4">
+                              <!-- 5 stars (you can adjust based on rating) -->
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                           </div>
+                           <p class="mt-2 max-w-lg text-lg  font-inherit  max-lg:text-center">"Working with SunLink was a positive experience. They’re very knowledgeable about residential solar and helped us design a system that is large enough to handle our current electric needs and ready for our future plans. Our solar system went live in January '23 and we have not had to pay anything on our electric bills. In fact, we've consistently built credits on each bill, that roll over to the next month."</p>
+                           <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Chuck M., <span class="text-gray-400">Verified Customer</span></h4>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class=" rounded-xl lightgrey px-8 pt-8 pb-8 sm:px-6 sm:pt-10 h-[500px]">
+                           <div class="flex items-center  mb-4">
+                              <!-- 5 stars (you can adjust based on rating) -->
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                           </div>
+                           <p class="mt-2 max-w-lg text-lg font-inherit   max-lg:text-center">"SunLink called on us about 3 years ago, designed a system that fit our needs extremely well. After an unexpected heart attack, we decided it was time to downsize & was pleasantly surprised house sold to the 2nd family that the looked at it particularly because it had solar. Once in our new house we called SunLink a 2nd time for their expertise to design a system for us."</p>
+                           <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Tom P., <span class="text-gray-400">Verified Customer</span></h4>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class=" rounded-xl lightgrey px-8 pt-8 pb-8 sm:px-6 sm:pt-10 h-[500px]">
+                           <div class="flex items-center  mb-4">
+                              <!-- 5 stars (you can adjust based on rating) -->
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                           </div>
+                           <p class="mt-2 max-w-lg text-lg  font-inherit  max-lg:text-center">“SunLink took care of us every step of the way getting solar. We paid $0 down to get our system. Our electric bill is -$24 our first month having solar. We experienced our first power outage and our battery kept our home running the entire time. If you care about your family and home you need to get solar from SunLink."</p>
+                           <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">John T., <span class="text-gray-400">Verified Customer</span></h4>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class=" rounded-xl lightgrey px-8 pt-8 pb-8 sm:px-6 sm:pt-10 h-[500px]">
+                           <div class="flex items-center  mb-4">
+                              <!-- 5 stars (you can adjust based on rating) -->
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                           </div>
+                           <p class="mt-2 max-w-lg text-lg font-inherit  max-lg:text-center">“I was skeptical at first - how could buying solar online actually work? But within 20 minutes, I had designed my own system, seen the real wholesale pricing (no markup!), and secured financing. The whole process was transparent from start to finish.”</p>
+                           <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">James D., <span class="text-gray-400">Verified Customer</span></h4>
+                        </div>
+                        <!-- Slide 1 -->
+                        <div class=" rounded-xl lightgrey px-8 pt-8 pb-8 sm:px-6 sm:pt-10 h-[500px]">
+                           <div class="flex items-center  mb-4">
+                              <!-- 5 stars (you can adjust based on rating) -->
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                           </div>
+                           <p class="mt-2 max-w-lg text-lg  font-inherit  max-lg:text-center">"Working with SunLink was a positive experience. They’re very knowledgeable about residential solar and helped us design a system that is large enough to handle our current electric needs and ready for our future plans. Our solar system went live in January '23 and we have not had to pay anything on our electric bills. In fact, we've consistently built credits on each bill, that roll over to the next month."</p>
+                           <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Chuck M., <span class="text-gray-400">Verified Customer</span></h4>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class=" rounded-xl lightgrey px-8 pt-8 pb-8 sm:px-6 sm:pt-10 h-[500px]">
+                           <div class="flex items-center  mb-4">
+                              <!-- 5 stars (you can adjust based on rating) -->
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                              <svg class="w-5 h-5 text-orange-400 fill-current" viewBox="0 0 20 20">
+                                 <path d="M10 15l-5.878 3.09 1.122-6.545L.487 6.91l6.561-.955L10 0l2.952 5.955 6.561.955-4.757 4.635 1.122 6.545z"/>
+                              </svg>
+                           </div>
+                           <p class="mt-2 max-w-lg text-lg font-inherit   max-lg:text-center">"SunLink called on us about 3 years ago, designed a system that fit our needs extremely well. After an unexpected heart attack, we decided it was time to downsize & was pleasantly surprised house sold to the 2nd family that the looked at it particularly because it had solar. Once in our new house we called SunLink a 2nd time for their expertise to design a system for us."</p>
+                           <h4 class="mt-8 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Tom P., <span class="text-gray-400">Verified Customer</span></h4>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <div class="mx-auto max-w-7xl px-6 lg:px-8 pb-24">
+            <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-5 md:grid-cols-3">
+               <div class="mx-auto flex max-w-xs flex-col gap-y-3">
+                  <dt class="text-base/7 text-gray-600">installations completed</dt>
+                  <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl counter" data-target="500" data-suffix="+">0+</dd>
+               </div>
+               <div class="mx-auto flex max-w-xs flex-col gap-y-3">
+                  <dt class="text-base/7 text-gray-600">average ratings</dt>
+                  <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl counter" data-target="4.9">0</dd>
+               </div>
+               <div class="mx-auto flex max-w-xs flex-col gap-y-3">
+                  <dt class="text-base/7 text-gray-600">satisfaction rate</dt>
+                  <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl counter" data-target="98" data-suffix="%">0%</dd>
+               </div>
+               <div class="mx-auto flex max-w-xs flex-col gap-y-3">
+                  <dt class="text-base/7 text-gray-600">down payment</dt>
+                  <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl counter" data-target="0" data-suffix="$">$0</dd>
+               </div>
+               <div class="mx-auto flex max-w-xs flex-col gap-y-3">
+                  <dt class="text-base/7 text-gray-600">verified installation partners</dt>
+                  <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl counter" data-target="100" data-suffix="+">0+</dd>
+               </div>
+            </dl>
+         </div>
+      </div>
+      <section class="overflow-hidden bg-white py-24 sm:py-32 bg-readytoseedif">
+         <div class="mx-auto w-full px-6 lg:px-8 relative">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+               <div class="lg:pt-4 lg:pr-8">
+                  <div class="lg:max-w-lg">
+                     <div class="text-xs mb-5  uppercase border border-solid w-max py-2  px-6 rounded-md text-white border-white overlayblur">
+                        <span class="circlebx bg-white"></span> Go solar
+                     </div>
+                     <h2 class="mt-2 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal tracking-tight text-pretty text-white ">Ready to see the difference?</h2>
+                     <p class="mt-6 text-xl text-white">Going solar should be about saving money on a bill you're already paying—nothing more, nothing less. SunLink makes that possible by removing the obstacles, eliminating the pressure, and connecting you with the right professionals to get the job done right.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="bg-white py-20 px-4 md:px-8 lg:px-14">
+         <div class="w-full mx-auto">
+            <h2 class="font-bold text-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-10">FAQs</h2>
+            <div id="faq" class="space-y-2 ">
+               <!-- FAQ Accordion -->
+               <div x-data="{ selected: null }" id="faq" class="space-y-2">
+                  <!-- FAQ Item -->
+                  <div class="p-5 border-b border-b-gray-600 pl-0" >
+                     <div 
+                        @click="selected === 1 ? selected = null : selected = 1" 
+                        class="cursor-pointer font-normal text-2xl text-dark-grey flex justify-between items-center"
+                        >
+                        How long do solar panels last?
+                        <span :class="{ 'rotate-180': selected === 1 }" class="transition-transform duration-300 ml-4 m-auto">
+                        <img src="assets/images/arrow-black.svg" alt="arrow" />
+                        </span>
+                     </div>
+                     <div 
+                        x-show="selected === 1" 
+                        x-transition.duration.300ms 
+                        class="mt-4 text-dark-grey overflow-hidden"
+                        >
+                        Solar panels typically last 25 to 30 years or more — but that doesn’t mean they stop working after that.
+                     </div>
+                  </div>
+                  <!-- Repeat for other questions -->
+                  <div class="p-5 border-b border-b-gray-600  pl-0">
+                     <div 
+                        @click="selected === 2 ? selected = null : selected = 2" 
+                        class="cursor-pointer font-normal text-2xl text-dark-grey flex justify-between items-center"
+                        >
+                        What happens if I decide to move?
+                        <span :class="{ 'rotate-180': selected === 2 }" class="transition-transform duration-300 ml-4 m-auto">
+                        <img src="assets/images/arrow-black.svg" alt="arrow" />
+                        </span>
+                     </div>
+                     <div 
+                        x-show="selected === 2" 
+                        x-transition.duration.300ms 
+                        class="mt-4 text-dark-grey overflow-hidden"
+                        >
+                        If you decide to move, solar can increase your home's value and you have options to transfer or remove it.
+                     </div>
+                  </div>
+                  <!-- Repeat for other questions -->
+                  <div class="p-5 border-b border-b-gray-600  pl-0">
+                     <div 
+                        @click="selected === 3 ? selected = null : selected = 3" 
+                        class="cursor-pointer font-normal text-2xl text-dark-grey flex justify-between items-center"
+                        >
+                        How much can I save with solar?
+                        <span :class="{ 'rotate-180': selected === 3 }" class="transition-transform duration-300 ml-4 m-auto">
+                        <img src="assets/images/arrow-black.svg" alt="arrow" />
+                        </span>
+                     </div>
+                     <div 
+                        x-show="selected === 3" 
+                        x-transition.duration.300ms 
+                        class="mt-4 text-dark-grey overflow-hidden"
+                        >
+                        If you decide to move, solar can increase your home's value and you have options to transfer or remove it.
+                     </div>
+                  </div>
+                  <!-- Repeat for other questions -->
+                  <div class="p-5 border-b border-b-gray-600 pl-0">
+                     <div 
+                        @click="selected === 4 ? selected = null : selected = 4" 
+                        class="cursor-pointer font-normal text-2xl text-dark-grey flex justify-between items-center"
+                        >
+                        How much can I save with solar?
+                        <span :class="{ 'rotate-180': selected === 4 }" class="transition-transform duration-300 ml-4 m-auto">
+                        <img src="assets/images/arrow-black.svg" alt="arrow" />
+                        </span>
+                     </div>
+                     <div 
+                        x-show="selected === 4" 
+                        x-transition.duration.300ms 
+                        class="mt-4 text-dark-grey overflow-hidden"
+                        >
+                        If you decide to move, solar can increase your home's value and you have options to transfer or remove it.
+                     </div>
+                  </div>
+                  <!-- Repeat for other questions -->
+                  <div class="p-5 border-b border-b-gray-600 pl-0">
+                     <div 
+                        @click="selected === 5 ? selected = null : selected = 5" 
+                        class="cursor-pointer font-normal text-2xl text-dark-grey flex justify-between items-center"
+                        >
+                        How much can I save with solar?
+                        <span :class="{ 'rotate-180': selected === 5 }" class="transition-transform duration-300 ml-4 m-auto">
+                        <img src="assets/images/arrow-black.svg" alt="arrow" />
+                        </span>
+                     </div>
+                     <div 
+                        x-show="selected === 5" 
+                        x-transition.duration.300ms 
+                        class="mt-4 text-dark-grey overflow-hidden"
+                        >
+                        If you decide to move, solar can increase your home's value and you have options to transfer or remove it.
+                     </div>
+                  </div>
+                  <!-- Repeat for other questions -->
+                  <div class="p-5 border-b border-b-gray-600 pl-0">
+                     <div 
+                        @click="selected === 6 ? selected = null : selected = 6" 
+                        class="cursor-pointer font-normal text-2xl text-dark-grey flex justify-between items-center"
+                        >
+                        How much can I save with solar?
+                        <span :class="{ 'rotate-180': selected === 6 }" class="transition-transform duration-300 ml-4 m-auto">
+                        <img src="assets/images/arrow-black.svg" alt="arrow" />
+                        </span>
+                     </div>
+                     <div 
+                        x-show="selected === 6" 
+                        x-transition.duration.300ms 
+                        class="mt-4 text-dark-grey overflow-hidden"
+                        >
+                        If you decide to move, solar can increase your home's value and you have options to transfer or remove it.
+                     </div>
+                  </div>
+                  <!-- Repeat for other questions -->
+                  <div class="p-5 border-b border-b-gray-600 pl-0">
+                     <div 
+                        @click="selected === 7 ? selected = null : selected = 7" 
+                        class="cursor-pointer font-normal text-2xl text-dark-grey flex justify-between items-center"
+                        >
+                        How much can I save with solar?
+                        <span :class="{ 'rotate-180': selected === 7 }" class="transition-transform duration-300 ml-4 m-auto">
+                        <img src="assets/images/arrow-black.svg" alt="arrow" />
+                        </span>
+                     </div>
+                     <div 
+                        x-show="selected === 7" 
+                        x-transition.duration.300ms 
+                        class="mt-4 text-dark-grey overflow-hidden"
+                        >
+                        If you decide to move, solar can increase your home's value and you have options to transfer or remove it.
+                     </div>
+                  </div>
+                  <!-- Add more FAQs similarly (increment selected index) -->
+               </div>
+            </div>
+            <div class="w-full mx-auto mt-10 pt-12">
+               <p class="text-base font-medium text-gray-400 text-center"> Have a different question?  <a class="text-black" href="#"><u>Contact us</u></a> </p>
+            </div>
+         </div>
+      </section>
+      
+      <!-- footer start here -->
+<footer class="bg-gray-900 text-gray-300 px-4 py-6 sm:px-6 sm:py-8  md:py-10 lg:px-2 xl:px-14 lg:py-12">
+  <div class="w-full mx-auto px-4 sm:px-2 md:px-2  lg:px-8">
+     <div class="grid grid-cols-1 xl:grid-cols-[0.6fr_1.5fr_0.4fr] lg:grid-cols-[1fr_1.5fr_0.8fr] md:grid-cols-[1fr_1.5fr] gap-8">
+      
+      <!-- Column 1: Logo & About -->
+      <div>
+        <img src="assets/images/sunlink-logo.svg" alt="logo" width="150"/>
+        <p class="text-sm leading-relaxed mt-5">
+          SunLink revolutionizes the solar industry by putting the power back in your hands. Our innovative platform eliminates high-pressure sales tactics and inflated commissions, allowing homeowners to design, customize, and purchase their solar system entirely online – at a fraction of traditional costs.
+        </p>
+        <div class="socialicons mt-6">
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="flex justify-center items-top grid grid-cols-1 xl:grid-cols-[1fr_0.8fr_1fr_1fr] md:grid-cols-[1fr_1fr] lg:grid-cols-[0.4fr_1fr_1fr_0.1fr] md:grid-cols-[1fr_1fr] ">
+         <div class="hidden lg:block"></div>
+        <div>
+             <h4 class="text-sm text-gray-300 mb-4">COMPANY</h4>
+              <ul class="space-y-2 text-sm font-mono text-white">
+                <li><a href="about.html" class="hover:text-orange transition">ABOUT</a></li>
+                <li><a href="#" class="hover:text-orange transition">HOW IT WORKS</a></li>
+                <li><a href="#" class="hover:text-orange transition">PRICING</a></li>
+                <li><a href="#" class="hover:text-orange transition">FAQ</a></li>
+              </ul>
+         </div>
+         <div>
+            <h4 class="text-sm text-gray-300 mb-4">RESOURCES</h4>
+            <ul class="space-y-2 text-sm font-mono text-white">
+              <li><a href="#" class="hover:text-orange transition">TESTIMONIALS</a></li>
+              <li><a href="privacy-policy.html" class="hover:text-orange transition">PRIVACY POLICY</a></li>
+              <li><a href="terms-of-service.html" class="hover:text-orange transition">TERMS OF SERVICE</a></li>
+              <li><a href="#" class="hover:text-orange transition">REFERRAL PROGRAM</a></li>
+            </ul>
+         </div>
+        <div class="hidden lg:block"></div>
+      </div>
+
+     
+
+      <!-- Column 4: Contact Info -->
+      <div class="flex justify-end items-start lg:block hidden">
+       <a href="#" class=" bg-orange hover:bg-orange  py-4 px-5 me-2 mb-2 text-sm font-normal text-white uppercase ">try sunlink now</a>
+      </div>
+
+    </div>
+
+    <div class="mt-10 text-center text-sm text-white border-t border-gray-700 pt-6 font-mono uppercase">
+      &copy; 2025 sunlink. all rights reserved. <br><br>
+
+      Actual savings will vary depending on system production, geography, weather, shade, electricity usage, utility rates, rate increases, and financing options. Savings estimated here assumes utility rate increases annually and stable customer utility usage rates. Contact us to receive a detailed proposal based on your home and energy usage.
+      </bar>
+    </div>
+
+
+  </div>
+</footer>
+
+<!-- footer end here -->
+
+      </div>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <!-- jQuery -->
+      <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+      <!-- Owl Carousel JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $("#owl-carousel-testimonials").owlCarousel({
+               loop: true,
+               margin: 20,
+               nav: false,      // Optional: hide arrows
+             dots: true,  
+               autoplay: true,
+               autoplayTimeout: 3000,
+               autoplayHoverPause: true,
+               
+               responsive: {
+                 0: { items: 1 },
+                 768: { items: 2 },
+                 1024: { items: 3 },
+                 1200: { items: 4 }
+               },
+               onChanged: function(event) {
+                 const items = $('.owl-item');
+                 items.removeClass('current');
+                 items.eq(event.item.index).addClass('current');
+               }
+         });
+         
+         
+         
+         
+         
+         
+         const nav = document.getElementById("mainNav");
+         
+         window.addEventListener("scroll", () => {
+         if (window.scrollY > 200) {
+         nav.classList.add("nav-scrolled");
+         } else {
+         nav.classList.remove("nav-scrolled");
+         }
+         });
+         
+         const counters = document.querySelectorAll('.counter');
+         const options = { threshold: 0.6 };
+         
+         const animateCount = (el, target, suffix = '', prefix = '') => {
+         let start = 0;
+         const duration = 2000;
+         const startTime = performance.now();
+         
+         const step = (currentTime) => {
+           const elapsed = currentTime - startTime;
+           const progress = Math.min(elapsed / duration, 1);
+           const value = Math.floor(progress * target);
+           el.innerText = `${prefix}${value}${suffix}`;
+           if (progress < 1) {
+             requestAnimationFrame(step);
+           } else {
+             el.innerText = `${prefix}${target}${suffix}`;
+           }
+         };
+         
+         requestAnimationFrame(step);
+         };
+         
+         
+         
+         const observer = new IntersectionObserver((entries, observer) => {
+         entries.forEach(entry => {
+           if (entry.isIntersecting) {
+             const el = entry.target;
+             const target = parseFloat(el.getAttribute('data-target'));
+             const suffix = el.getAttribute('data-suffix') || '';
+             const prefix = el.getAttribute('data-prefix') || '';
+             animateCount(el, target, suffix, prefix);
+             observer.unobserve(el);
+           }
+         });
+         }, options);
+         
+         counters.forEach(counter => {
+         observer.observe(counter);
+         });
+         
+         
+         const progressLine = document.getElementById('progress-line');
+         const timeline = progressLine.parentElement;
+         
+         window.addEventListener('scroll', () => {
+         const rect = timeline.getBoundingClientRect();
+         const viewportHeight = window.innerHeight;
+         
+         if (rect.top < viewportHeight && rect.bottom > 0) {
+           // Calculate visible height percentage
+           const totalHeight = rect.height;
+           const scrollTop = Math.min(viewportHeight - rect.top, totalHeight);
+           const heightPercent = Math.max(0, Math.min(scrollTop / totalHeight, 1));
+           progressLine.style.height = `${heightPercent * totalHeight}px`;
+         }
+         });
+         
+         
+         });
+         
+         $(document).ready(function(){
+           $('#owl-carousel-logos').owlCarousel({
+             loop: true,
+             margin: 20,
+             autoplay: true,
+             autoplayTimeout: 2000,
+             dots: false,
+             autoplayHoverPause: true,
+             responsive: {
+               0: {
+                 items: 2
+               },
+               640: {
+                 items: 3
+               },
+               1024: {
+                 items: 6
+               }
+             }
+           });
+         });
+         
+         
+         const observer = new IntersectionObserver(entries => {
+           entries.forEach(entry => {
+             if (entry.isIntersecting) {
+               entry.target.classList.add('visible');
+             }
+           });
+         }, {
+           threshold: 0.1
+         });
+         
+         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      </script>
+   </body>
+</html>
